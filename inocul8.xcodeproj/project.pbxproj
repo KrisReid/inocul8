@@ -56,9 +56,9 @@
 		02820F4629185DEF00782B89 /* inocul8 */ = {
 			isa = PBXGroup;
 			children = (
+				02820F5B291B0D8000782B89 /* Views */,
 				02820F4729185DEF00782B89 /* inocul8App.swift */,
 				02820F4929185DEF00782B89 /* Persistence.swift */,
-				02820F4E29185DEF00782B89 /* ContentView.swift */,
 				02820F5029185DF000782B89 /* Assets.xcassets */,
 				02820F5229185DF100782B89 /* inocul8.entitlements */,
 				02820F4B29185DEF00782B89 /* inocul8.xcdatamodeld */,
@@ -73,6 +73,14 @@
 				02820F5429185DF100782B89 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		02820F5B291B0D8000782B89 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				02820F4E29185DEF00782B89 /* ContentView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21512" systemVersion="21G72" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
-    <elements>
-        <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
-    </elements>
+    <entity name="Patient" representedClassName="Patient" syncable="YES" codeGenerationType="class">
+        <attribute name="dateOfBirth" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="photoData" optional="YES" attributeType="Binary"/>
+        <relationship name="patientAdministration" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PatientAdministration" inverseName="pateint" inverseEntity="PatientAdministration"/>
+    </entity>
+    <entity name="PatientAdministration" representedClassName="PatientAdministration" syncable="YES" codeGenerationType="class">
+        <attribute name="date_booster" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="date_received" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="location" optional="YES" attributeType="String"/>
+        <attribute name="staff_name" optional="YES" attributeType="String"/>
+        <relationship name="pateint" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="patientAdministration" inverseEntity="Patient"/>
+        <relationship name="vacinedetails" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VaccineDetails" inverseName="patientAdministration" inverseEntity="VaccineDetails"/>
+    </entity>
+    <entity name="VaccineDetails" representedClassName="VaccineDetails" syncable="YES" codeGenerationType="class">
+        <attribute name="color" optional="YES" attributeType="Binary"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="patientAdministration" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PatientAdministration" inverseName="vacinedetails" inverseEntity="PatientAdministration"/>
+    </entity>
 </model>
