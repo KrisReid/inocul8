@@ -52,27 +52,84 @@ struct AddVaccinationFormView: View {
     let currentYear = Calendar.current.component(.year, from: Date())
     let currentMonth = Calendar.current.component(.month, from: Date())
     
+    @State private var showBoosterOne = true
+    @State private var showBoosterTwo = false
+    
     
     var body: some View {
         NavigationView {
             Form {
                 Section {
                     TextField("Name", text: $name)
-                    TextField("Location", text: $location)
+                    TextField("Location Recieved", text: $location)
                     Picker("Recieved Month", selection: $recieved_month) {
                         ForEach(1..<13, id: \.self) { num in
                             Text(String(num)).tag(String(num))
                         }
                     }
                     Picker("Recieved Year", selection: $recieved_year) {
-                        ForEach(currentYear..<currentYear - 12, id: \.self) { num in
+                        ForEach(currentYear - 80..<currentYear + 1, id: \.self) { num in
                             Text(String(num)).tag(String(num))
                         }
                     }
                 } header: {
-                    Text("Card Info")
+                    Text("Vaccination Info")
+                        .font(.system(size: 14))
                 }
                 
+                
+                Section {
+                    if showBoosterOne {
+                        Picker("Booster Month", selection: $booster_one_month) {
+                            ForEach(1..<13, id: \.self) { num in
+                                Text(String(num)).tag(String(num))
+                            }
+                        }
+                        Picker("Year", selection: $booster_one_year) {
+                            ForEach(currentYear - 80..<currentYear + 11, id: \.self) { num in
+                                Text(String(num)).tag(String(num))
+                            }
+                        }
+                        Toggle(isOn: $showBoosterTwo) {
+                            Text("+ another booster")
+                        }
+                        .toggleStyle(.button)
+                        .tint(.blue)
+                    }
+                        
+                } header: {
+                    Toggle(isOn: $showBoosterOne) {
+                        Text("Had / Schedule a booster?")
+                            .font(.system(size: 14))
+                    }
+                    .toggleStyle(SwitchToggleStyle(tint: .blue))
+                }
+                
+                
+                if showBoosterTwo && showBoosterOne {
+                    Section {
+                        Picker("Booster Month", selection: $booster_two_month) {
+                            ForEach(1..<13, id: \.self) { num in
+                                Text(String(num)).tag(String(num))
+                            }
+                        }
+                        Picker("Year", selection: $booster_two_year) {
+                            ForEach(currentYear - 80..<currentYear + 11, id: \.self) { num in
+                                Text(String(num)).tag(String(num))
+                            }
+                        }
+                    } header: {
+                        Text("Booster 2")
+                            .font(.system(size: 14))
+                    }
+                }
+                
+                Section {
+                    ColorPicker("Color", selection: $color)
+                } header: {
+                    Text("Colour")
+                }
+
                 
             }
             .navigationTitle("Add Vaccination")
@@ -90,8 +147,29 @@ struct AddVaccinationFormView: View {
     
     var SaveButton: some View {
         Button(action: {
-            print("DDDD")
-
+            let viewContext = PersistenceController.shared.container.viewContext
+            
+            //Code to decide if we are editing or adding a new card
+            let vaccination = self.vaccination != nil ? self.vaccination! : Vaccination(context: viewContext)
+            
+            vaccination.name = self.name
+            vaccination.location = self.location
+            vaccination.recieved_month = Int16(self.recieved_month)
+            vaccination.recieved_year = Int16(self.recieved_year)
+            vaccination.booster_one_month = Int16(self.booster_one_month)
+            vaccination.booster_one_year = Int16(self.booster_one_year)
+            vaccination.booster_two_month = Int16(self.booster_two_month)
+            vaccination.booster_two_year = Int16(self.booster_two_year)
+            vaccination.color = UIColor(self.color).encode()
+            vaccination.timestamp = Date()
+            
+            do {
+                try viewContext.save()
+                presentationMode.wrappedValue.dismiss()
+                didAddVaccination?(vaccination)
+            } catch {
+                print("Failed to persist the new record: \(error)")
+            }
         }, label: {
             Text("Save")
         })
