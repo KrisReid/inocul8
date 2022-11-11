@@ -23,7 +23,21 @@ struct ContentView: View {
         NavigationView {
             ScrollView {
                 if !vaccinations.isEmpty {
-                    // Do something
+                    
+                    TabView(selection: $selectedVaccinationHash) {
+                        ForEach(vaccinations) { vaccination in
+                            VaccinationView(vaccination: vaccination)
+                                .padding(.bottom, 50)
+                                .tag(vaccination.hash)
+                        }
+                    }
+                    .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
+                    .frame(height: 280)
+                    .indexViewStyle(.page(backgroundDisplayMode: .always))
+                    .onAppear {
+                        self.selectedVaccinationHash = vaccinations.first?.hash ?? -1
+                    }
+                    
                 } else {
                     emptyPromptMessage
                 }
