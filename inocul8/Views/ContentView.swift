@@ -6,85 +6,80 @@
 //
 
 import SwiftUI
-import CoreData
 
 struct ContentView: View {
+    
     @Environment(\.managedObjectContext) private var viewContext
-
+    
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
+        sortDescriptors: [NSSortDescriptor(keyPath: \Vaccination.timestamp, ascending: false)],
         animation: .default)
-    private var items: FetchedResults<Item>
+    private var vaccinations: FetchedResults<Vaccination>
+    
+    @State private var shouldPresentAddVaccinatioForm = false
+    @State private var selectedVaccinationHash = -1
 
     var body: some View {
         NavigationView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at line \(item.timestamp!, formatter: itemFormatter)")
-                    } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
+            ScrollView {
+                if !vaccinations.isEmpty {
+                    // Do something
+                } else {
+                    emptyPromptMessage
+                }
+                Spacer()
+                    .fullScreenCover(isPresented: $shouldPresentAddVaccinatioForm, onDismiss: nil) {
+                        AddVaccinationFormView(vaccination: nil) { vaccination in
+                            self.selectedVaccinationHash = vaccination.hash
+                        }
                     }
-                }
-                .onDelete(perform: deleteItems)
             }
-            .toolbar {
-#if os(iOS)
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-#endif
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
-            Text("Select an item")
+            .navigationTitle("Vaccinations")
+            .navigationBarItems(trailing: addCardButton)
         }
     }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+    
+    var emptyPromptMessage: some View {
+        VStack {
+            Text("You currently have no vaccinations in the system")
+                .padding(.horizontal, 48)
+                .padding(.vertical)
+                .font(.system(size: 18, weight: .semibold))
+                .multilineTextAlignment(.center)
+            Button {
+                shouldPresentAddVaccinatioForm.toggle()
+            } label: {
+                Text("+ Add your first vaccination here")
+                    .foregroundColor(Color(.systemBackground))
+                    .font(.system(size: 16, weight: .bold, design: .default))
+                    .padding(EdgeInsets(top: 10, leading: 14, bottom: 10, trailing: 14))
+                    .background(Color(.label))
+                    .cornerRadius(4)
             }
         }
     }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
+    
+    var addCardButton: some View {
+        Button(action: {
+            shouldPresentAddVaccinatioForm.toggle()
+        }, label: {
+            Text("+ Vaccination")
+                .foregroundColor(Color(.systemBackground))
+                .font(.system(size: 16, weight: .bold, design: .default))
+                .padding(EdgeInsets(top: 8, leading: 12, bottom: 8, trailing: 12))
+                .background(Color(.label))
+                .cornerRadius(4)
+        })
     }
+
+
 }
-
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        let viewContext = PersistenceController.shared.container.viewContext
+        ContentView()
+            .environment(\.managedObjectContext, viewContext)
+        
     }
 }

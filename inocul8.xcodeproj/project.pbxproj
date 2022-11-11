@@ -13,6 +13,8 @@
 		02820F4F29185DEF00782B89 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02820F4E29185DEF00782B89 /* ContentView.swift */; };
 		02820F5129185DF000782B89 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02820F5029185DF000782B89 /* Assets.xcassets */; };
 		02820F5529185DF100782B89 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02820F5429185DF100782B89 /* Preview Assets.xcassets */; };
+		02820F5E291E45FE00782B89 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02820F5D291E45FE00782B89 /* Extensions.swift */; };
+		02820F60291E563900782B89 /* AddVaccinationFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02820F5F291E563900782B89 /* AddVaccinationFormView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		02820F5029185DF000782B89 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		02820F5229185DF100782B89 /* inocul8.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = inocul8.entitlements; sourceTree = "<group>"; };
 		02820F5429185DF100782B89 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		02820F5D291E45FE00782B89 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		02820F5F291E563900782B89 /* AddVaccinationFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVaccinationFormView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,7 @@
 		02820F4629185DEF00782B89 /* inocul8 */ = {
 			isa = PBXGroup;
 			children = (
+				02820F5C291E45DF00782B89 /* Utilities */,
 				02820F5B291B0D8000782B89 /* Views */,
 				02820F4729185DEF00782B89 /* inocul8App.swift */,
 				02820F4929185DEF00782B89 /* Persistence.swift */,
@@ -79,8 +84,17 @@
 			isa = PBXGroup;
 			children = (
 				02820F4E29185DEF00782B89 /* ContentView.swift */,
+				02820F5F291E563900782B89 /* AddVaccinationFormView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		02820F5C291E45DF00782B89 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				02820F5D291E45FE00782B89 /* Extensions.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,6 +167,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02820F60291E563900782B89 /* AddVaccinationFormView.swift in Sources */,
+				02820F5E291E45FE00782B89 /* Extensions.swift in Sources */,
 				02820F4D29185DEF00782B89 /* inocul8.xcdatamodeld in Sources */,
 				02820F4829185DEF00782B89 /* inocul8App.swift in Sources */,
 				02820F4F29185DEF00782B89 /* ContentView.swift in Sources */,
