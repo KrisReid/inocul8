@@ -26,7 +26,7 @@ struct ContentView: View {
                     
                     TabView(selection: $selectedVaccinationHash) {
                         ForEach(vaccinations) { vaccination in
-                            VaccinationView(vaccination: vaccination, selectedColor: Color(.cyan))
+                            VaccinationView(vaccination: vaccination)
                                 .padding(.bottom, 50)
                                 .tag(vaccination.hash)
                         }

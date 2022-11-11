@@ -14,12 +14,7 @@ struct VaccinationView: View {
     
     @State var shouldShowActionSheet = false
     @State var shouldShowEditForm = false
-    
-    //Hack for refreshing the UI - The issue is that saving from Core Data does not rerednder the screen, but adding this forces that re-render?
-    
     @State var refreshId = UUID()
-    @State var hadBoosterOne = false
-    @State var selectedColor: Color
     
     var body: some View {
         
@@ -43,12 +38,32 @@ struct VaccinationView: View {
                 }
             }
             
+            VStack {
+                HStack {
+                    Text("NAME")
+                    Spacer()
+                    Text("DOB")
+                }
+                .font(.system(size: 14, weight: .light))
+                HStack {
+                    Text("Kris Reid")
+                    Spacer()
+                    Text("29-09-1988")
+                }
+                .font(.system(size: 16, weight: .bold))
+            }
             
-            // MAKE REPEATABLE CODE FOR DOASAGE 2
             VaccinationDetailView(manufacturer: vaccination.dose_one_manufacturer ?? "N/A", location: vaccination.dose_one_location ?? "N/A", administeredMonth: String(vaccination.dose_one_recieved_month), administeredYear: String(vaccination.dose_one_recieved_year), expiresMonth: String(vaccination.dose_one_expires_month), expiresYear: String(vaccination.dose_one_expires_year), dosageNumber: "1", color: Color(UIColor.color(data: vaccination.color!)!))
             
-//            Text("\(String(vaccination.recieved_month))- \(String(vaccination.recieved_year))")
-//                .font(.system(size: 24, weight: .semibold))
+            if vaccination.dose_two_expires_year != 9999 {
+                VaccinationDetailView(manufacturer: vaccination.dose_two_manufacturer ?? "N/A", location: vaccination.dose_two_location ?? "N/A", administeredMonth: String(vaccination.dose_two_recieved_month), administeredYear: String(vaccination.dose_two_recieved_year), expiresMonth: String(vaccination.dose_two_expires_month), expiresYear: String(vaccination.dose_two_expires_year), dosageNumber: "2", color: Color(UIColor.color(data: vaccination.color!)!))
+            }
+            
+            HStack {
+                Spacer()
+                QRCodeView()
+                Spacer()
+            }
             
         }
         .foregroundColor(.white)

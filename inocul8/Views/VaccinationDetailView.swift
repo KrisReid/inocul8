@@ -19,20 +19,6 @@ struct VaccinationDetailView: View {
     let color: Color
     
     var body: some View {
-        VStack {
-            HStack {
-                Text("NAME")
-                Spacer()
-                Text("DOB")
-            }
-            .font(.system(size: 14, weight: .light))
-            HStack {
-                Text("Kris Reid")
-                Spacer()
-                Text("29-09-1988")
-            }
-            .font(.system(size: 16, weight: .bold))
-        }
         
         VStack {
             VStack {
