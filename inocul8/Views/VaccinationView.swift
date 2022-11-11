@@ -16,21 +16,23 @@ struct VaccinationView: View {
     @State var shouldShowEditForm = false
     
     //Hack for refreshing the UI - The issue is that saving from Core Data does not rerednder the screen, but adding this forces that re-render?
+    
     @State var refreshId = UUID()
     @State var hadBoosterOne = false
+    @State var selectedColor: Color
     
     var body: some View {
         
         VStack (alignment: .leading, spacing: 16) {
             HStack {
                 Text(vaccination.name ?? "")
-                    .font(.system(size: 24, weight: .semibold))
+                    .font(.system(size: 40, weight: .light))
                 Spacer()
                 Button {
                     shouldShowActionSheet.toggle()
                 } label: {
                     Image(systemName: "ellipsis")
-                        .font(.system(size: 24, weight: .bold))
+                        .font(.system(size: 20, weight: .bold))
                 }
                 .actionSheet(isPresented: $shouldShowActionSheet) {
                     .init(title: Text(self.vaccination.name ?? ""), buttons: [
@@ -41,17 +43,11 @@ struct VaccinationView: View {
                 }
             }
             
-//            if vaccination.booster_one_year == 9999 {
-//
-//            }
-//            
+            
+            // MAKE REPEATABLE CODE FOR DOASAGE 2
+            VaccinationDetailView(manufacturer: vaccination.dose_one_manufacturer ?? "N/A", location: vaccination.dose_one_location ?? "N/A", administeredMonth: String(vaccination.dose_one_recieved_month), administeredYear: String(vaccination.dose_one_recieved_year), expiresMonth: String(vaccination.dose_one_expires_month), expiresYear: String(vaccination.dose_one_expires_year), dosageNumber: "1", color: Color(UIColor.color(data: vaccination.color!)!))
+            
 //            Text("\(String(vaccination.recieved_month))- \(String(vaccination.recieved_year))")
-//                .font(.system(size: 24, weight: .semibold))
-//            
-//            Text("\(String(vaccination.booster_one_month))- \(String(vaccination.booster_one_year))")
-//                .font(.system(size: 24, weight: .semibold))
-//            
-//            Text("\(String(vaccination.booster_two_month))- \(String(vaccination.booster_two_year))")
 //                .font(.system(size: 24, weight: .semibold))
             
         }
@@ -60,8 +56,8 @@ struct VaccinationView: View {
         .background(
             VStack {
                 if let colorData = vaccination.color, let uiColor = UIColor.color(data: colorData), let actualColor = Color(uiColor) {
-                    
-                    LinearGradient(colors: [actualColor.opacity(0.6), actualColor], startPoint: .center, endPoint: .bottom)
+                    actualColor
+                        .opacity(0.4)
                 }
                 else {
                     Color.cyan
@@ -70,7 +66,6 @@ struct VaccinationView: View {
         )
         .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.black.opacity(0.6), lineWidth: 1))
         .cornerRadius(8)
-        .shadow(radius: 5)
         .padding(.horizontal)
         .padding(.top, 10)
         .fullScreenCover(isPresented: $shouldShowEditForm) {

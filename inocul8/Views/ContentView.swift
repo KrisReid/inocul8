@@ -26,13 +26,13 @@ struct ContentView: View {
                     
                     TabView(selection: $selectedVaccinationHash) {
                         ForEach(vaccinations) { vaccination in
-                            VaccinationView(vaccination: vaccination)
+                            VaccinationView(vaccination: vaccination, selectedColor: Color(.cyan))
                                 .padding(.bottom, 50)
                                 .tag(vaccination.hash)
                         }
                     }
                     .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
-                    .frame(height: 280)
+                    .frame(height: 640)
                     .indexViewStyle(.page(backgroundDisplayMode: .always))
                     .onAppear {
                         self.selectedVaccinationHash = vaccinations.first?.hash ?? -1

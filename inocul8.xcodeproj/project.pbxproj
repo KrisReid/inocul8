@@ -16,6 +16,7 @@
 		02820F5E291E45FE00782B89 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02820F5D291E45FE00782B89 /* Extensions.swift */; };
 		02820F60291E563900782B89 /* AddVaccinationFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02820F5F291E563900782B89 /* AddVaccinationFormView.swift */; };
 		02820F62291E770300782B89 /* VaccinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02820F61291E770300782B89 /* VaccinationView.swift */; };
+		02820F64291EABB900782B89 /* VaccinationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02820F63291EABB900782B89 /* VaccinationDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		02820F5D291E45FE00782B89 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		02820F5F291E563900782B89 /* AddVaccinationFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVaccinationFormView.swift; sourceTree = "<group>"; };
 		02820F61291E770300782B89 /* VaccinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccinationView.swift; sourceTree = "<group>"; };
+		02820F63291EABB900782B89 /* VaccinationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccinationDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				02820F4E29185DEF00782B89 /* ContentView.swift */,
 				02820F61291E770300782B89 /* VaccinationView.swift */,
 				02820F5F291E563900782B89 /* AddVaccinationFormView.swift */,
+				02820F63291EABB900782B89 /* VaccinationDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 				02820F60291E563900782B89 /* AddVaccinationFormView.swift in Sources */,
 				02820F5E291E45FE00782B89 /* Extensions.swift in Sources */,
 				02820F62291E770300782B89 /* VaccinationView.swift in Sources */,
+				02820F64291EABB900782B89 /* VaccinationDetailView.swift in Sources */,
 				02820F4D29185DEF00782B89 /* inocul8.xcdatamodeld in Sources */,
 				02820F4829185DEF00782B89 /* inocul8App.swift in Sources */,
 				02820F4F29185DEF00782B89 /* ContentView.swift in Sources */,

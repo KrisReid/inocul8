@@ -75,6 +75,7 @@ struct AddVaccinationFormView: View {
                         .font(.system(size: 14))
                 }
                 Section {
+                    TextField("Manufacturer", text: $dose_one_manufacturer)
                     TextField("Location Recieved", text: $dose_one_location)
                     Picker("Recieved Month", selection: $dose_one_recieved_month) {
                         ForEach(1..<13, id: \.self) { num in
@@ -105,6 +106,7 @@ struct AddVaccinationFormView: View {
                 
                 Section {
                     if showDosageTwo {
+                        TextField("Manufacturer", text: $dose_two_manufacturer)
                         TextField("Location Recieved", text: $dose_two_location)
                         Picker("Recieved Month", selection: $dose_two_recieved_month) {
                             ForEach(1..<13, id: \.self) { num in
@@ -189,17 +191,21 @@ struct AddVaccinationFormView: View {
             //Code to decide if we are editing or adding a new card
             let vaccination = self.vaccination != nil ? self.vaccination! : Vaccination(context: viewContext)
             
-//            vaccination.name = self.name
-//            vaccination.location = self.location
-//            vaccination.recieved_month = Int16(self.recieved_month)
-//            vaccination.recieved_year = Int16(self.recieved_year)
-//            vaccination.recieved_duration = self.recieved_duration
-//            vaccination.booster_one_month = Int16(self.booster_one_month)
-//            vaccination.booster_one_year = Int16(self.booster_one_year)
-//            vaccination.booster_two_month = Int16(self.booster_two_month)
-//            vaccination.booster_two_year = Int16(self.booster_two_year)
-//            vaccination.color = UIColor(self.color).encode()
-//            vaccination.timestamp = Date()
+            vaccination.name = self.name
+            vaccination.dose_one_location = self.dose_one_location
+            vaccination.dose_one_manufacturer = self.dose_one_manufacturer
+            vaccination.dose_one_recieved_year = Int16(self.dose_one_recieved_year)
+            vaccination.dose_one_recieved_month = Int16(self.dose_one_recieved_month)
+            vaccination.dose_one_expires_year = Int16(self.dose_one_expires_year)
+            vaccination.dose_one_expires_month = Int16(self.dose_one_expires_month)
+            vaccination.dose_two_location = self.dose_two_location
+            vaccination.dose_two_manufacturer = self.dose_two_manufacturer
+            vaccination.dose_two_recieved_year = Int16(self.dose_two_recieved_year)
+            vaccination.dose_two_recieved_month = Int16(self.dose_two_recieved_month)
+            vaccination.dose_two_expires_year = Int16(self.dose_two_expires_year)
+            vaccination.dose_two_expires_month = Int16(self.dose_two_expires_month)
+            vaccination.color = UIColor(self.color).encode()
+            vaccination.timestamp = Date()
             
             do {
                 try viewContext.save()
