@@ -214,15 +214,12 @@ struct AddVaccinationFormView: View {
             vaccination.dose_two_recieved_month = Int16(self.dose_two_recieved_month)
             vaccination.dose_two_expires_year = Int16(self.dose_two_expires_year)
             vaccination.dose_two_expires_month = Int16(self.dose_two_expires_month)
-            
-            
-            // CHANGE TO DOSAGE THREE
-            vaccination.dose_two_location = self.dose_two_location
-            vaccination.dose_two_manufacturer = self.dose_two_manufacturer
-            vaccination.dose_two_recieved_year = Int16(self.dose_two_recieved_year)
-            vaccination.dose_two_recieved_month = Int16(self.dose_two_recieved_month)
-            vaccination.dose_two_expires_year = Int16(self.dose_two_expires_year)
-            vaccination.dose_two_expires_month = Int16(self.dose_two_expires_month)
+            vaccination.dose_three_location = self.dose_three_location
+            vaccination.dose_three_manufacturer = self.dose_three_manufacturer
+            vaccination.dose_three_recieved_year = Int16(self.dose_three_recieved_year)
+            vaccination.dose_three_recieved_month = Int16(self.dose_three_recieved_month)
+            vaccination.dose_three_expires_year = Int16(self.dose_three_expires_year)
+            vaccination.dose_three_expires_month = Int16(self.dose_three_expires_month)
             
             vaccination.timestamp = Date()
             

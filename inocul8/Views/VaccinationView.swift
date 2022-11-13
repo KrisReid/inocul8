@@ -54,28 +54,33 @@ struct VaccinationView: View {
                 .font(.system(size: 16, weight: .bold))
             }
             
-            VaccinationDetailView(manufacturer: vaccination.dose_one_manufacturer ?? "N/A", location: vaccination.dose_one_location ?? "N/A", administeredMonth: String(vaccination.dose_one_recieved_month), administeredYear: String(vaccination.dose_one_recieved_year), expiresMonth: String(vaccination.dose_one_expires_month), expiresYear: String(vaccination.dose_one_expires_year), dosageNumber: "1")
             
-            if vaccination.dose_two_expires_year != 9999 {
-                VaccinationDetailView(manufacturer: vaccination.dose_two_manufacturer ?? "N/A", location: vaccination.dose_two_location ?? "N/A", administeredMonth: String(vaccination.dose_two_recieved_month), administeredYear: String(vaccination.dose_two_recieved_year), expiresMonth: String(vaccination.dose_two_expires_month), expiresYear: String(vaccination.dose_two_expires_year), dosageNumber: "2")
+            VStack {
+                VaccinationDetailView(manufacturer: vaccination.dose_one_manufacturer ?? "N/A", location: vaccination.dose_one_location ?? "N/A", administeredMonth: String(vaccination.dose_one_recieved_month), administeredYear: String(vaccination.dose_one_recieved_year), expiresMonth: String(vaccination.dose_one_expires_month), expiresYear: String(vaccination.dose_one_expires_year), dosageNumber: "1")
+                
+                if vaccination.dose_two_expires_year != 9999 {
+                    VaccinationDetailView(manufacturer: vaccination.dose_two_manufacturer ?? "N/A", location: vaccination.dose_two_location ?? "N/A", administeredMonth: String(vaccination.dose_two_recieved_month), administeredYear: String(vaccination.dose_two_recieved_year), expiresMonth: String(vaccination.dose_two_expires_month), expiresYear: String(vaccination.dose_two_expires_year), dosageNumber: "2")
+                }
+                
+                if vaccination.dose_three_expires_year != 9999 {
+                    VaccinationDetailView(manufacturer: vaccination.dose_three_manufacturer ?? "N/A", location: vaccination.dose_three_location ?? "N/A", administeredMonth: String(vaccination.dose_three_recieved_month), administeredYear: String(vaccination.dose_three_recieved_year), expiresMonth: String(vaccination.dose_three_expires_month), expiresYear: String(vaccination.dose_three_expires_year), dosageNumber: "2")
+                }
             }
             
-            HStack {
-                Spacer()
-                QRCodeView()
-                Spacer()
-            }
+//            HStack {
+//                Spacer()
+//                QRCodeView()
+//                Spacer()
+//            }
             
         }
-        .foregroundColor(.white)
+        .foregroundColor(Color.text)
         .padding()
         .background(
             Color.primary_1
         )
-        .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.black.opacity(0.6), lineWidth: 1))
         .cornerRadius(8)
         .padding(.horizontal)
-        .padding(.top, 10)
         .fullScreenCover(isPresented: $shouldShowEditForm) {
             AddVaccinationFormView(vaccination: self.vaccination)
         }
@@ -99,6 +104,5 @@ struct VaccinationView_Previews: PreviewProvider {
         let viewContext = PersistenceController.shared.container.viewContext
         ContentView()
             .environment(\.managedObjectContext, viewContext)
-//        VaccinationView()
     }
 }

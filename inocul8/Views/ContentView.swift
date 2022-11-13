@@ -64,7 +64,7 @@ struct ContentView: View {
                 shouldPresentAddVaccinatioForm.toggle()
             } label: {
                 Text("+ Add your first vaccination here")
-                    .foregroundColor(Color.white)
+                    .foregroundColor(Color.text)
                     .font(.system(size: 16, weight: .bold, design: .default))
                     .padding(EdgeInsets(top: 10, leading: 14, bottom: 10, trailing: 14))
                     .background(Color.primary_1)
@@ -78,7 +78,7 @@ struct ContentView: View {
             shouldPresentAddVaccinatioForm.toggle()
         }, label: {
             Text("+ Vaccination")
-                .foregroundColor(Color.white)
+                .foregroundColor(Color.text)
                 .font(.system(size: 16, weight: .bold, design: .default))
                 .padding(EdgeInsets(top: 8, leading: 12, bottom: 8, trailing: 12))
                 .background(Color.primary_1)

@@ -14,6 +14,7 @@ extension Color {
     static let accent_2 = Color("Accent_2")
     static let grey_1 = Color("Grey_1")
     static let grey_2 = Color("Grey_2")
+    static let text = Color("Text")
 }
 
 extension UIColor {
