@@ -10,12 +10,10 @@ import SwiftUI
 struct ContentView: View {
     
     @Environment(\.managedObjectContext) private var viewContext
-    
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Vaccination.timestamp, ascending: false)],
         animation: .default)
     private var vaccinations: FetchedResults<Vaccination>
-    
     @State private var shouldPresentAddVaccinatioForm = false
     @State private var selectedVaccinationHash = -1
 
@@ -23,22 +21,15 @@ struct ContentView: View {
         NavigationView {
             ScrollView {
                 if !vaccinations.isEmpty {
-                    
-                    TabView(selection: $selectedVaccinationHash) {
-                        ForEach(vaccinations) { vaccination in
-                            VaccinationView(vaccination: vaccination)
-                                .padding(.bottom, 50)
-                                .tag(vaccination.hash)
-                        }
+                    ForEach(vaccinations) { vaccination in
+                        VaccinationView(vaccination: vaccination)
+                            .tag(vaccination.hash)
                     }
-                    .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
-                    .frame(height: 640)
-                    .indexViewStyle(.page(backgroundDisplayMode: .always))
-                    .onAppear {
-                        self.selectedVaccinationHash = vaccinations.first?.hash ?? -1
-                    }
-                    
+                    .padding(.vertical, 10)
                 } else {
+                    
+                    // Add in the ability to add and store your name and DOB before continuing with adding a vaccination.
+                    
                     emptyPromptMessage
                 }
                 Spacer()
@@ -55,21 +46,10 @@ struct ContentView: View {
     
     var emptyPromptMessage: some View {
         VStack {
-            Text("You currently have no vaccinations in the system")
-                .padding(.horizontal, 48)
-                .padding(.vertical)
-                .font(.system(size: 18, weight: .semibold))
-                .multilineTextAlignment(.center)
-            Button {
-                shouldPresentAddVaccinatioForm.toggle()
-            } label: {
-                Text("+ Add your first vaccination here")
-                    .foregroundColor(Color.text)
-                    .font(.system(size: 16, weight: .bold, design: .default))
-                    .padding(EdgeInsets(top: 10, leading: 14, bottom: 10, trailing: 14))
-                    .background(Color.primary_1)
-                    .cornerRadius(4)
-            }
+            Text("You currently have no vaccinations in the system. Please add your first one by tapping the add button")
+                .padding(.vertical, 30)
+                .padding(.horizontal)
+                .font(.system(size: 18, weight: .light))
         }
     }
     
@@ -77,12 +57,10 @@ struct ContentView: View {
         Button(action: {
             shouldPresentAddVaccinatioForm.toggle()
         }, label: {
-            Text("+ Vaccination")
-                .foregroundColor(Color.text)
-                .font(.system(size: 16, weight: .bold, design: .default))
-                .padding(EdgeInsets(top: 8, leading: 12, bottom: 8, trailing: 12))
-                .background(Color.primary_1)
-                .cornerRadius(4)
+            Image(systemName: "plus.circle.fill")
+                .font(.system(size: 28))
+                .frame(width: 50, height: 50)
+                .foregroundColor(Color.primary_1)
         })
     }
 

@@ -133,7 +133,7 @@ struct AddVaccinationFormView: View {
                             }
                         }
                     }
-                        
+                    
                 } header: {
                     Toggle(isOn: $showDosageTwo) {
                         Text("Dosage 2 Info")
@@ -143,42 +143,40 @@ struct AddVaccinationFormView: View {
                 }
                 
                 
-//                if showDosageThree {
-                    Section {
-                        if showDosageTwo && showDosageThree {
-                            TextField("Manufacturer", text: $dose_three_manufacturer)
-                            TextField("Location Recieved", text: $dose_three_location)
-                            Picker("Recieved Month", selection: $dose_three_recieved_month) {
-                                ForEach(1..<13, id: \.self) { num in
-                                    Text(String(num)).tag(String(num))
-                                }
-                            }
-                            Picker("Recieved Year", selection: $dose_three_recieved_year) {
-                                ForEach(currentYear - 80..<currentYear + 1, id: \.self) { num in
-                                    Text(String(num)).tag(String(num))
-                                }
-                            }
-                            Picker("Expired Month", selection: $dose_three_expires_month) {
-                                ForEach(1..<13, id: \.self) { num in
-                                    Text(String(num)).tag(String(num))
-                                }
-                            }
-                            Picker("Expired Year", selection: $dose_three_expires_year) {
-                                ForEach(currentYear - 80..<currentYear + 11, id: \.self) { num in
-                                    Text(String(num)).tag(String(num))
-                                }
+                Section {
+                    if showDosageTwo && showDosageThree {
+                        TextField("Manufacturer", text: $dose_three_manufacturer)
+                        TextField("Location Recieved", text: $dose_three_location)
+                        Picker("Recieved Month", selection: $dose_three_recieved_month) {
+                            ForEach(1..<13, id: \.self) { num in
+                                Text(String(num)).tag(String(num))
                             }
                         }
-                    } header: {
-                        if showDosageTwo {
-                            Toggle(isOn: $showDosageThree) {
-                                Text("Dosage 3 Info")
-                                    .font(.system(size: 14))
+                        Picker("Recieved Year", selection: $dose_three_recieved_year) {
+                            ForEach(currentYear - 80..<currentYear + 1, id: \.self) { num in
+                                Text(String(num)).tag(String(num))
                             }
-                            .toggleStyle(SwitchToggleStyle(tint: .blue))
+                        }
+                        Picker("Expired Month", selection: $dose_three_expires_month) {
+                            ForEach(1..<13, id: \.self) { num in
+                                Text(String(num)).tag(String(num))
+                            }
+                        }
+                        Picker("Expired Year", selection: $dose_three_expires_year) {
+                            ForEach(currentYear - 80..<currentYear + 11, id: \.self) { num in
+                                Text(String(num)).tag(String(num))
+                            }
                         }
                     }
-//                }
+                } header: {
+                    if showDosageTwo {
+                        Toggle(isOn: $showDosageThree) {
+                            Text("Dosage 3 Info")
+                                .font(.system(size: 14))
+                        }
+                        .toggleStyle(SwitchToggleStyle(tint: .blue))
+                    }
+                }
                 
             }
             .navigationTitle("Add Vaccination")

@@ -59,7 +59,7 @@ struct VaccinationDetailView: View {
             Color.accent_1
         )
         .cornerRadius(6)
-        .padding(.top, 10)
+        .padding(.top, 8)
     }
 }
 

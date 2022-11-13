@@ -52,7 +52,9 @@ struct VaccinationView: View {
                     Text("29-09-1988")
                 }
                 .font(.system(size: 16, weight: .bold))
+                .foregroundColor(Color.text)
             }
+            .padding(.top, 20)
             
             
             VStack {
@@ -66,6 +68,7 @@ struct VaccinationView: View {
                     VaccinationDetailView(manufacturer: vaccination.dose_three_manufacturer ?? "N/A", location: vaccination.dose_three_location ?? "N/A", administeredMonth: String(vaccination.dose_three_recieved_month), administeredYear: String(vaccination.dose_three_recieved_year), expiresMonth: String(vaccination.dose_three_expires_month), expiresYear: String(vaccination.dose_three_expires_year), dosageNumber: "2")
                 }
             }
+            .padding(.bottom, 4)
             
 //            HStack {
 //                Spacer()
