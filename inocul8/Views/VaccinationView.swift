@@ -45,6 +45,7 @@ struct VaccinationView: View {
                     Text("DOB")
                 }
                 .font(.system(size: 14, weight: .light))
+                .foregroundColor(Color.accent_2)
                 HStack {
                     Text("Kris Reid")
                     Spacer()
@@ -53,10 +54,10 @@ struct VaccinationView: View {
                 .font(.system(size: 16, weight: .bold))
             }
             
-            VaccinationDetailView(manufacturer: vaccination.dose_one_manufacturer ?? "N/A", location: vaccination.dose_one_location ?? "N/A", administeredMonth: String(vaccination.dose_one_recieved_month), administeredYear: String(vaccination.dose_one_recieved_year), expiresMonth: String(vaccination.dose_one_expires_month), expiresYear: String(vaccination.dose_one_expires_year), dosageNumber: "1", color: Color(UIColor.color(data: vaccination.color!)!))
+            VaccinationDetailView(manufacturer: vaccination.dose_one_manufacturer ?? "N/A", location: vaccination.dose_one_location ?? "N/A", administeredMonth: String(vaccination.dose_one_recieved_month), administeredYear: String(vaccination.dose_one_recieved_year), expiresMonth: String(vaccination.dose_one_expires_month), expiresYear: String(vaccination.dose_one_expires_year), dosageNumber: "1")
             
             if vaccination.dose_two_expires_year != 9999 {
-                VaccinationDetailView(manufacturer: vaccination.dose_two_manufacturer ?? "N/A", location: vaccination.dose_two_location ?? "N/A", administeredMonth: String(vaccination.dose_two_recieved_month), administeredYear: String(vaccination.dose_two_recieved_year), expiresMonth: String(vaccination.dose_two_expires_month), expiresYear: String(vaccination.dose_two_expires_year), dosageNumber: "2", color: Color(UIColor.color(data: vaccination.color!)!))
+                VaccinationDetailView(manufacturer: vaccination.dose_two_manufacturer ?? "N/A", location: vaccination.dose_two_location ?? "N/A", administeredMonth: String(vaccination.dose_two_recieved_month), administeredYear: String(vaccination.dose_two_recieved_year), expiresMonth: String(vaccination.dose_two_expires_month), expiresYear: String(vaccination.dose_two_expires_year), dosageNumber: "2")
             }
             
             HStack {
@@ -69,15 +70,7 @@ struct VaccinationView: View {
         .foregroundColor(.white)
         .padding()
         .background(
-            VStack {
-                if let colorData = vaccination.color, let uiColor = UIColor.color(data: colorData), let actualColor = Color(uiColor) {
-                    actualColor
-                        .opacity(0.4)
-                }
-                else {
-                    Color.cyan
-                }
-            }
+            Color.primary_1
         )
         .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.black.opacity(0.6), lineWidth: 1))
         .cornerRadius(8)

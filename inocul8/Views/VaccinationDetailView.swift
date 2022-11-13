@@ -16,7 +16,6 @@ struct VaccinationDetailView: View {
     let expiresMonth: String
     let expiresYear: String
     let dosageNumber: String
-    let color: Color
     
     var body: some View {
         
@@ -27,7 +26,7 @@ struct VaccinationDetailView: View {
                     Spacer()
                     Text("DOSE \(dosageNumber)")
                 }
-                .foregroundColor(color.opacity(0.9))
+                .foregroundColor(Color.accent_2)
                 .font(.system(size: 14, weight: .light))
                 HStack {
                     Text(manufacturer)
@@ -44,7 +43,7 @@ struct VaccinationDetailView: View {
                     Spacer()
                     Text("EXPIRES")
                 }
-                .foregroundColor(color.opacity(0.9))
+                .foregroundColor(Color.accent_2)
                 .font(.system(size: 14, weight: .light))
                 HStack {
                     Text(location)
@@ -57,7 +56,7 @@ struct VaccinationDetailView: View {
         }
         .padding(10)
         .background(
-            color.opacity(0.2)
+            Color.accent_1
         )
         .cornerRadius(6)
         .padding(.top, 10)

@@ -49,7 +49,7 @@ struct ContentView: View {
                     }
             }
             .navigationTitle("Vaccinations")
-            .navigationBarItems(trailing: addCardButton)
+            .navigationBarItems(trailing: addVaccinationButton)
         }
     }
     
@@ -64,24 +64,24 @@ struct ContentView: View {
                 shouldPresentAddVaccinatioForm.toggle()
             } label: {
                 Text("+ Add your first vaccination here")
-                    .foregroundColor(Color(.systemBackground))
+                    .foregroundColor(Color.white)
                     .font(.system(size: 16, weight: .bold, design: .default))
                     .padding(EdgeInsets(top: 10, leading: 14, bottom: 10, trailing: 14))
-                    .background(Color(.label))
+                    .background(Color.primary_1)
                     .cornerRadius(4)
             }
         }
     }
     
-    var addCardButton: some View {
+    var addVaccinationButton: some View {
         Button(action: {
             shouldPresentAddVaccinatioForm.toggle()
         }, label: {
             Text("+ Vaccination")
-                .foregroundColor(Color(.systemBackground))
+                .foregroundColor(Color.white)
                 .font(.system(size: 16, weight: .bold, design: .default))
                 .padding(EdgeInsets(top: 8, leading: 12, bottom: 8, trailing: 12))
-                .background(Color(.label))
+                .background(Color.primary_1)
                 .cornerRadius(4)
         })
     }
