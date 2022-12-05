@@ -9,6 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @ObservedObject private var countryListVM = CountryListViewModel()
+    
+//    Move these into the View Controller
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Vaccination.timestamp, ascending: false)],
@@ -16,16 +19,29 @@ struct ContentView: View {
     private var vaccinations: FetchedResults<Vaccination>
     @State private var shouldPresentAddVaccinatioForm = false
     @State private var selectedVaccinationHash = -1
+    
+    
+    init() {
+        countryListVM.load()
+    }
+    
 
     var body: some View {
         NavigationView {
             ScrollView {
                 if !vaccinations.isEmpty {
-                    ForEach(vaccinations) { vaccination in
-                        VaccinationView(vaccination: vaccination)
-                            .tag(vaccination.hash)
+//                    ForEach(vaccinations) { vaccination in
+//                        VaccinationView(vaccination: vaccination)
+//                            .tag(vaccination.hash)
+//                    }
+//                    .padding(.vertical, 10)
+                    
+                    ForEach(self.countryListVM.countries, id:\.id) { country in
+//                        Text(country.name)
+//                            .foregroundColor(Color.primary_1)
+                        Text(country.generalInformation)
                     }
-                    .padding(.vertical, 10)
+                    
                 } else {
                     
                     // Add in the ability to add and store your name and DOB before continuing with adding a vaccination.

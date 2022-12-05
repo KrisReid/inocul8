@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		023AAEB2293B861A00C04F97 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023AAEB1293B861A00C04F97 /* WebService.swift */; };
+		023AAEB5293B865A00C04F97 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023AAEB4293B865A00C04F97 /* Country.swift */; };
+		023AAEB8293B881100C04F97 /* CountryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023AAEB7293B881100C04F97 /* CountryListViewModel.swift */; };
+		023AAEBA293B88A800C04F97 /* CountryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023AAEB9293B88A800C04F97 /* CountryViewModel.swift */; };
 		02820F4829185DEF00782B89 /* inocul8App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02820F4729185DEF00782B89 /* inocul8App.swift */; };
 		02820F4A29185DEF00782B89 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02820F4929185DEF00782B89 /* Persistence.swift */; };
 		02820F4D29185DEF00782B89 /* inocul8.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 02820F4B29185DEF00782B89 /* inocul8.xcdatamodeld */; };
@@ -21,6 +25,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		023AAEB1293B861A00C04F97 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		023AAEB4293B865A00C04F97 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		023AAEB7293B881100C04F97 /* CountryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListViewModel.swift; sourceTree = "<group>"; };
+		023AAEB9293B88A800C04F97 /* CountryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryViewModel.swift; sourceTree = "<group>"; };
 		02820F4429185DEF00782B89 /* inocul8.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = inocul8.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02820F4729185DEF00782B89 /* inocul8App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inocul8App.swift; sourceTree = "<group>"; };
 		02820F4929185DEF00782B89 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -47,6 +55,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		023AAEB0293B860600C04F97 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				023AAEB1293B861A00C04F97 /* WebService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		023AAEB3293B864B00C04F97 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				023AAEB4293B865A00C04F97 /* Country.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		023AAEB6293B87BB00C04F97 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				023AAEB7293B881100C04F97 /* CountryListViewModel.swift */,
+				023AAEB9293B88A800C04F97 /* CountryViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		02820F3B29185DEF00782B89 = {
 			isa = PBXGroup;
 			children = (
@@ -66,6 +99,9 @@
 		02820F4629185DEF00782B89 /* inocul8 */ = {
 			isa = PBXGroup;
 			children = (
+				023AAEB6293B87BB00C04F97 /* ViewModels */,
+				023AAEB3293B864B00C04F97 /* Models */,
+				023AAEB0293B860600C04F97 /* Services */,
 				02820F5C291E45DF00782B89 /* Utilities */,
 				02820F5B291B0D8000782B89 /* Views */,
 				02820F4729185DEF00782B89 /* inocul8App.swift */,
@@ -181,9 +217,13 @@
 				02820F62291E770300782B89 /* VaccinationView.swift in Sources */,
 				02820F66291EB7D100782B89 /* QRCodeView.swift in Sources */,
 				02820F64291EABB900782B89 /* VaccinationDetailView.swift in Sources */,
+				023AAEBA293B88A800C04F97 /* CountryViewModel.swift in Sources */,
 				02820F4D29185DEF00782B89 /* inocul8.xcdatamodeld in Sources */,
 				02820F4829185DEF00782B89 /* inocul8App.swift in Sources */,
+				023AAEB5293B865A00C04F97 /* Country.swift in Sources */,
 				02820F4F29185DEF00782B89 /* ContentView.swift in Sources */,
+				023AAEB8293B881100C04F97 /* CountryListViewModel.swift in Sources */,
+				023AAEB2293B861A00C04F97 /* WebService.swift in Sources */,
 				02820F4A29185DEF00782B89 /* Persistence.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
