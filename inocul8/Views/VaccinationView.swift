@@ -70,12 +70,6 @@ struct VaccinationView: View {
             }
             .padding(.bottom, 4)
             
-//            HStack {
-//                Spacer()
-//                QRCodeView()
-//                Spacer()
-//            }
-            
         }
         .foregroundColor(Color.text)
         .padding()
@@ -105,7 +99,7 @@ struct VaccinationView: View {
 struct VaccinationView_Previews: PreviewProvider {
     static var previews: some View {
         let viewContext = PersistenceController.shared.container.viewContext
-        ContentView()
+        ContentView(viewRouter: ViewRouter())
             .environment(\.managedObjectContext, viewContext)
     }
 }

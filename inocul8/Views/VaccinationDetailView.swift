@@ -66,7 +66,7 @@ struct VaccinationDetailView: View {
 struct VaccinationDetailView_Previews: PreviewProvider {
     static var previews: some View {
         let viewContext = PersistenceController.shared.container.viewContext
-        ContentView()
+        ContentView(viewRouter: ViewRouter())
             .environment(\.managedObjectContext, viewContext)
     }
 }
