@@ -1,13 +1,13 @@
 //
-//  CountryListViewModel.swift
+//  TravelViewModel.swift
 //  inocul8
 //
-//  Created by Kris Reid on 03/12/2022.
+//  Created by Kris Reid on 06/12/2022.
 //
 
 import Foundation
 
-class CountryListViewModel: ObservableObject {
+class TravelViewModel: ObservableObject {
     
     @Published var countries: [CountryViewModel] = [CountryViewModel]()
 
