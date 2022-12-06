@@ -12,11 +12,15 @@
 		023AAEBA293B88A800C04F97 /* CountryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023AAEB9293B88A800C04F97 /* CountryViewModel.swift */; };
 		023AAEBC293E895B00C04F97 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023AAEBB293E895B00C04F97 /* ViewRouter.swift */; };
 		023AAEBE293E89FA00C04F97 /* VaccinationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023AAEBD293E89FA00C04F97 /* VaccinationsView.swift */; };
-		023AAEC2293F1D7300C04F97 /* TravelVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023AAEC1293F1D7300C04F97 /* TravelVIew.swift */; };
+		023AAEC2293F1D7300C04F97 /* TravelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023AAEC1293F1D7300C04F97 /* TravelView.swift */; };
 		023AAEC4293F1DB500C04F97 /* TravelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023AAEC3293F1DB500C04F97 /* TravelViewModel.swift */; };
 		023AAEC8293F1FBC00C04F97 /* VaccinationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023AAEC7293F1FBC00C04F97 /* VaccinationsViewModel.swift */; };
-		023AAECA293F21B000C04F97 /* EmptyVaccinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023AAEC9293F21B000C04F97 /* EmptyVaccinationView.swift */; };
+		023AAECA293F21B000C04F97 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023AAEC9293F21B000C04F97 /* EmptyView.swift */; };
 		023AAECE293F224B00C04F97 /* AddButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023AAECD293F224B00C04F97 /* AddButtonView.swift */; };
+		023AAED0293F23A800C04F97 /* TravelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023AAECF293F23A800C04F97 /* TravelsView.swift */; };
+		023AAED2293F243B00C04F97 /* TravelsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023AAED1293F243B00C04F97 /* TravelsViewModel.swift */; };
+		023AAED4293F25F300C04F97 /* AddTravelFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023AAED3293F25F300C04F97 /* AddTravelFormView.swift */; };
+		023AAED6293F27B500C04F97 /* AddTravelFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023AAED5293F27B500C04F97 /* AddTravelFormViewModel.swift */; };
 		02820F4829185DEF00782B89 /* inocul8App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02820F4729185DEF00782B89 /* inocul8App.swift */; };
 		02820F4A29185DEF00782B89 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02820F4929185DEF00782B89 /* Persistence.swift */; };
 		02820F4D29185DEF00782B89 /* inocul8.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 02820F4B29185DEF00782B89 /* inocul8.xcdatamodeld */; };
@@ -35,11 +39,15 @@
 		023AAEB9293B88A800C04F97 /* CountryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryViewModel.swift; sourceTree = "<group>"; };
 		023AAEBB293E895B00C04F97 /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
 		023AAEBD293E89FA00C04F97 /* VaccinationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccinationsView.swift; sourceTree = "<group>"; };
-		023AAEC1293F1D7300C04F97 /* TravelVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelVIew.swift; sourceTree = "<group>"; };
+		023AAEC1293F1D7300C04F97 /* TravelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelView.swift; sourceTree = "<group>"; };
 		023AAEC3293F1DB500C04F97 /* TravelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelViewModel.swift; sourceTree = "<group>"; };
 		023AAEC7293F1FBC00C04F97 /* VaccinationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccinationsViewModel.swift; sourceTree = "<group>"; };
-		023AAEC9293F21B000C04F97 /* EmptyVaccinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyVaccinationView.swift; sourceTree = "<group>"; };
+		023AAEC9293F21B000C04F97 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		023AAECD293F224B00C04F97 /* AddButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonView.swift; sourceTree = "<group>"; };
+		023AAECF293F23A800C04F97 /* TravelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelsView.swift; sourceTree = "<group>"; };
+		023AAED1293F243B00C04F97 /* TravelsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelsViewModel.swift; sourceTree = "<group>"; };
+		023AAED3293F25F300C04F97 /* AddTravelFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTravelFormView.swift; sourceTree = "<group>"; };
+		023AAED5293F27B500C04F97 /* AddTravelFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTravelFormViewModel.swift; sourceTree = "<group>"; };
 		02820F4429185DEF00782B89 /* inocul8.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = inocul8.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02820F4729185DEF00782B89 /* inocul8App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inocul8App.swift; sourceTree = "<group>"; };
 		02820F4929185DEF00782B89 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -97,7 +105,6 @@
 				02820F61291E770300782B89 /* VaccinationView.swift */,
 				02820F5F291E563900782B89 /* AddVaccinationFormView.swift */,
 				02820F63291EABB900782B89 /* VaccinationDetailView.swift */,
-				023AAEC9293F21B000C04F97 /* EmptyVaccinationView.swift */,
 			);
 			path = Vaccinations;
 			sourceTree = "<group>";
@@ -105,7 +112,9 @@
 		023AAEC0293F1D5200C04F97 /* Travel */ = {
 			isa = PBXGroup;
 			children = (
-				023AAEC1293F1D7300C04F97 /* TravelVIew.swift */,
+				023AAECF293F23A800C04F97 /* TravelsView.swift */,
+				023AAEC1293F1D7300C04F97 /* TravelView.swift */,
+				023AAED3293F25F300C04F97 /* AddTravelFormView.swift */,
 			);
 			path = Travel;
 			sourceTree = "<group>";
@@ -122,9 +131,20 @@
 		023AAEC6293F1F6D00C04F97 /* Travel */ = {
 			isa = PBXGroup;
 			children = (
+				023AAED1293F243B00C04F97 /* TravelsViewModel.swift */,
 				023AAEC3293F1DB500C04F97 /* TravelViewModel.swift */,
+				023AAED5293F27B500C04F97 /* AddTravelFormViewModel.swift */,
 			);
 			path = Travel;
+			sourceTree = "<group>";
+		};
+		023AAED7293F9DA900C04F97 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				023AAECD293F224B00C04F97 /* AddButtonView.swift */,
+				023AAEC9293F21B000C04F97 /* EmptyView.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 		02820F3B29185DEF00782B89 = {
@@ -175,6 +195,7 @@
 				02820F4E29185DEF00782B89 /* ContentView.swift */,
 				023AAEC0293F1D5200C04F97 /* Travel */,
 				023AAEBF293F1D3800C04F97 /* Vaccinations */,
+				023AAED7293F9DA900C04F97 /* Shared */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -184,7 +205,6 @@
 			children = (
 				02820F5D291E45FE00782B89 /* Extensions.swift */,
 				023AAEBB293E895B00C04F97 /* ViewRouter.swift */,
-				023AAECD293F224B00C04F97 /* AddButtonView.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -261,10 +281,12 @@
 			files = (
 				02820F60291E563900782B89 /* AddVaccinationFormView.swift in Sources */,
 				023AAEBC293E895B00C04F97 /* ViewRouter.swift in Sources */,
+				023AAED4293F25F300C04F97 /* AddTravelFormView.swift in Sources */,
 				02820F5E291E45FE00782B89 /* Extensions.swift in Sources */,
 				02820F62291E770300782B89 /* VaccinationView.swift in Sources */,
 				023AAEC8293F1FBC00C04F97 /* VaccinationsViewModel.swift in Sources */,
 				02820F64291EABB900782B89 /* VaccinationDetailView.swift in Sources */,
+				023AAED2293F243B00C04F97 /* TravelsViewModel.swift in Sources */,
 				023AAEBA293B88A800C04F97 /* CountryViewModel.swift in Sources */,
 				02820F4D29185DEF00782B89 /* inocul8.xcdatamodeld in Sources */,
 				02820F4829185DEF00782B89 /* inocul8App.swift in Sources */,
@@ -272,11 +294,13 @@
 				023AAEBE293E89FA00C04F97 /* VaccinationsView.swift in Sources */,
 				023AAEC4293F1DB500C04F97 /* TravelViewModel.swift in Sources */,
 				02820F4F29185DEF00782B89 /* ContentView.swift in Sources */,
-				023AAEC2293F1D7300C04F97 /* TravelVIew.swift in Sources */,
-				023AAECA293F21B000C04F97 /* EmptyVaccinationView.swift in Sources */,
+				023AAEC2293F1D7300C04F97 /* TravelView.swift in Sources */,
+				023AAED6293F27B500C04F97 /* AddTravelFormViewModel.swift in Sources */,
+				023AAECA293F21B000C04F97 /* EmptyView.swift in Sources */,
 				023AAEB2293B861A00C04F97 /* WebService.swift in Sources */,
 				023AAECE293F224B00C04F97 /* AddButtonView.swift in Sources */,
 				02820F4A29185DEF00782B89 /* Persistence.swift in Sources */,
+				023AAED0293F23A800C04F97 /* TravelsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

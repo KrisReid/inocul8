@@ -19,7 +19,7 @@ struct ContentView: View {
                 case .vaccination:
                     VaccinationsView()
                 case .travel:
-                    TravelVIew()
+                    TravelsView()
                 }
                 Spacer()
                 
@@ -38,7 +38,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView(viewRouter: ViewRouter())
-        
     }
 }
 

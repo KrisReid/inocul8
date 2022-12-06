@@ -29,9 +29,7 @@ struct VaccinationsView: View {
                     .padding(.vertical, 10)
                     
                 } else {
-                    // Add in the ability to add and store your name and DOB before continuing with adding a vaccination.
-                    
-                    EmptyVaccinationView()
+                    EmptyView(type: "vaccinations")
                 }
                 Spacer()
                     .fullScreenCover(isPresented: $vaccinationsVM.shouldPresentAddVaccinatioForm, onDismiss: nil) {

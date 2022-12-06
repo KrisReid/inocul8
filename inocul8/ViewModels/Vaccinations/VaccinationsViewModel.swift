@@ -11,5 +11,4 @@ class VaccinationsViewModel: ObservableObject {
     
     @Published var shouldPresentAddVaccinatioForm = false
     @Published var selectedVaccinationHash = -1
-    
 }

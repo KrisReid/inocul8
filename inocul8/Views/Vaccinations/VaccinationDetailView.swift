@@ -52,7 +52,6 @@ struct VaccinationDetailView: View {
                 }
                 .font(.system(size: 14, weight: .bold))
             }
-            
         }
         .padding(10)
         .background(
