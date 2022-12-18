@@ -22,33 +22,40 @@ struct AddTravelFormView: View {
         
         addTravelFormVM.load()
         
-//        _destination = State(initialValue: self.travel?.destination ?? "")
-//        _return_month = State(initialValue: Int(addTravelFormVM.return_month ?? Int16(addTravelFormVM.currentMonth)))
+        _destination = State(initialValue: self.travel?.destination ?? "")
+        _return_month = State(initialValue: Int(self.travel?.return_month ?? Int16(addTravelFormVM.currentMonth)))
+        _return_year = State(initialValue: Int(self.travel?.return_year ?? Int16(addTravelFormVM.currentYear)))
+        
+//        _return_month = State(initialValue: Int(return_month ?? Int16(addTravelFormVM.currentMonth)))
 //        _return_year = State(initialValue: Int($addTravelFormVM.return_year ?? Int16(addTravelFormVM.currentYear)))
     }
     
     @Environment(\.presentationMode) var presentationMode
-//    @State private var destination = ""
-//    @State private var returning_year = Calendar.current.component(.year, from: Date())
-//    @State private var returning_month = Calendar.current.component(.month, from: Date())
+    @State private var destination = ""
+    @State private var return_year = Calendar.current.component(.year, from: Date())
+    @State private var return_month = Calendar.current.component(.month, from: Date())
     
     
     var body: some View {
         NavigationView {
             Form {
                 Section {
-                    Picker("Destination", selection: $addTravelFormVM.destination) {
-                        ForEach(self.addTravelFormVM.countries, id:\.id) { country in
+//                    Picker("Destination", selection: $addTravelFormVM.destination) {
+                    Picker("Destination", selection: $destination) {
+                        ForEach(self.addTravelFormVM.countries, id:\.name) { country in
                             Text(country.name)
                         }
                     }
                     .pickerStyle(.menu)
-                    Picker("Returning Month", selection: $addTravelFormVM.return_month) {
+//                    Picker("Returning Month", selection: $addTravelFormVM.return_month) {
+                        Picker("Returning Month", selection: $return_month) {
+
                         ForEach(1..<13, id: \.self) { num in
                             Text(String(num)).tag(String(num))
                         }
                     }
-                    Picker("Returning Year", selection: $addTravelFormVM.return_year) {
+//                    Picker("Returning Year", selection: $addTravelFormVM.return_year) {
+                    Picker("Returning Year", selection: $return_year) {
                         ForEach(addTravelFormVM.currentYear ... addTravelFormVM.currentYear + 11, id: \.self) { num in
                             Text(String(num)).tag(String(num))
                         }
@@ -78,10 +85,15 @@ struct AddTravelFormView: View {
             //Code to decide if we are editing or adding a new card
             let travel = self.travel != nil ? self.travel! : Travel(context: viewContext)
             
-            travel.destination = addTravelFormVM.destination
-            travel.return_month = Int16(addTravelFormVM.return_month)
-            travel.return_year = Int16(addTravelFormVM.return_year)
+            travel.destination = self.destination
+            travel.return_month = Int16(self.return_month)
+            travel.return_year = Int16(self.return_year)
             travel.timestamp = Date()
+            
+//            travel.destination = addTravelFormVM.destination
+//            travel.return_month = Int16(addTravelFormVM.return_month)
+//            travel.return_year = Int16(addTravelFormVM.return_year)
+//            travel.timestamp = Date()
             
             do {
                 try viewContext.save()

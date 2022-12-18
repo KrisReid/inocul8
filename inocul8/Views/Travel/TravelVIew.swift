@@ -9,13 +9,16 @@ import SwiftUI
 
 struct TravelView: View {
     
-    @ObservedObject private var travelVM = TravelViewModel()
+//    @ObservedObject private var travelVM = TravelViewModel()
     
     let travel: Travel
     
     var body: some View {
         VStack {
-            Text(travel.return_month)
+            Text("------")
+            Text(travel.destination ?? "Gah")
+            Text(String(travel.return_month))
+            Text(String(travel.return_year))
         }
     }
 }
