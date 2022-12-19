@@ -20,7 +20,7 @@ struct AddTravelFormView: View {
         self.travel = travel
         self.didAddTravel = didAddTravel
         
-        addTravelFormVM.load()
+//        addTravelFormVM.load()
         
         _destination = State(initialValue: self.travel?.destination ?? "")
         _return_month = State(initialValue: Int(self.travel?.return_month ?? Int16(addTravelFormVM.currentMonth)))
@@ -42,9 +42,12 @@ struct AddTravelFormView: View {
                 Section {
 //                    Picker("Destination", selection: $addTravelFormVM.destination) {
                     Picker("Destination", selection: $destination) {
-                        ForEach(self.addTravelFormVM.countries, id:\.name) { country in
-                            Text(country.name)
+                        ForEach(self.addTravelFormVM.countryList, id: \.self) { country in
+                            Text(country)
                         }
+//                        ForEach(self.addTravelFormVM.countries, id:\.name) { country in
+//                            Text(country.name)
+//                        }
                     }
                     .pickerStyle(.menu)
 //                    Picker("Returning Month", selection: $addTravelFormVM.return_month) {
