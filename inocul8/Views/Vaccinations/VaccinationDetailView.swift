@@ -26,7 +26,7 @@ struct VaccinationDetailView: View {
                     Spacer()
                     Text("DOSE \(dosageNumber)")
                 }
-                .foregroundColor(Color.accent_2)
+                .foregroundColor(.black)
                 .font(.system(size: 14, weight: .light))
                 HStack {
                     Text(manufacturer)
@@ -43,7 +43,7 @@ struct VaccinationDetailView: View {
                     Spacer()
                     Text("EXPIRES")
                 }
-                .foregroundColor(Color.accent_2)
+                .foregroundColor(.black)
                 .font(.system(size: 14, weight: .light))
                 HStack {
                     Text(location)
@@ -55,9 +55,9 @@ struct VaccinationDetailView: View {
         }
         .padding(10)
         .background(
-            Color.accent_1
+            Color.primary_1
         )
-        .cornerRadius(6)
+        .cornerRadius(14, corners: [.topLeft, .bottomLeft])
         .padding(.top, 8)
     }
 }

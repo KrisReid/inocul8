@@ -21,13 +21,14 @@ struct VaccinationView: View {
         VStack (alignment: .leading, spacing: 16) {
             HStack {
                 Text(vaccination.name ?? "")
-                    .font(.system(size: 40, weight: .light))
+                    .font(.system(size: 26, weight: .semibold))
                 Spacer()
                 Button {
                     shouldShowActionSheet.toggle()
                 } label: {
                     Image(systemName: "ellipsis")
                         .font(.system(size: 20, weight: .bold))
+                        .padding()
                 }
                 .actionSheet(isPresented: $shouldShowActionSheet) {
                     .init(title: Text(self.vaccination.name ?? ""), buttons: [
@@ -37,46 +38,31 @@ struct VaccinationView: View {
                     ])
                 }
             }
+            .foregroundColor(Color.primary_1)
             
-            VStack {
-                HStack {
-                    Text("NAME")
-                    Spacer()
-                    Text("DOB")
+            HStack {
+                Spacer()
+                VStack {
+                    VaccinationDetailView(manufacturer: vaccination.dose_one_manufacturer ?? "N/A", location: vaccination.dose_one_location ?? "N/A", administeredMonth: String(vaccination.dose_one_recieved_month), administeredYear: String(vaccination.dose_one_recieved_year), expiresMonth: String(vaccination.dose_one_expires_month), expiresYear: String(vaccination.dose_one_expires_year), dosageNumber: "1")
+                    
+                    if vaccination.dose_two_expires_year != 9999 {
+                        VaccinationDetailView(manufacturer: vaccination.dose_two_manufacturer ?? "N/A", location: vaccination.dose_two_location ?? "N/A", administeredMonth: String(vaccination.dose_two_recieved_month), administeredYear: String(vaccination.dose_two_recieved_year), expiresMonth: String(vaccination.dose_two_expires_month), expiresYear: String(vaccination.dose_two_expires_year), dosageNumber: "2")
+                    }
+                    
+                    if vaccination.dose_three_expires_year != 9999 {
+                        VaccinationDetailView(manufacturer: vaccination.dose_three_manufacturer ?? "N/A", location: vaccination.dose_three_location ?? "N/A", administeredMonth: String(vaccination.dose_three_recieved_month), administeredYear: String(vaccination.dose_three_recieved_year), expiresMonth: String(vaccination.dose_three_expires_month), expiresYear: String(vaccination.dose_three_expires_year), dosageNumber: "2")
+                    }
                 }
-                .font(.system(size: 14, weight: .light))
-                .foregroundColor(Color.accent_2)
-                HStack {
-                    Text("Kris Reid")
-                    Spacer()
-                    Text("29-09-1988")
-                }
-                .font(.system(size: 16, weight: .bold))
-                .foregroundColor(Color.text)
+                .padding(.bottom, 4)
             }
-            .padding(.top, 20)
+            .foregroundColor(.white)
+
             
-            
-            VStack {
-                VaccinationDetailView(manufacturer: vaccination.dose_one_manufacturer ?? "N/A", location: vaccination.dose_one_location ?? "N/A", administeredMonth: String(vaccination.dose_one_recieved_month), administeredYear: String(vaccination.dose_one_recieved_year), expiresMonth: String(vaccination.dose_one_expires_month), expiresYear: String(vaccination.dose_one_expires_year), dosageNumber: "1")
-                
-                if vaccination.dose_two_expires_year != 9999 {
-                    VaccinationDetailView(manufacturer: vaccination.dose_two_manufacturer ?? "N/A", location: vaccination.dose_two_location ?? "N/A", administeredMonth: String(vaccination.dose_two_recieved_month), administeredYear: String(vaccination.dose_two_recieved_year), expiresMonth: String(vaccination.dose_two_expires_month), expiresYear: String(vaccination.dose_two_expires_year), dosageNumber: "2")
-                }
-                
-                if vaccination.dose_three_expires_year != 9999 {
-                    VaccinationDetailView(manufacturer: vaccination.dose_three_manufacturer ?? "N/A", location: vaccination.dose_three_location ?? "N/A", administeredMonth: String(vaccination.dose_three_recieved_month), administeredYear: String(vaccination.dose_three_recieved_year), expiresMonth: String(vaccination.dose_three_expires_month), expiresYear: String(vaccination.dose_three_expires_year), dosageNumber: "2")
-                }
-            }
-            .padding(.bottom, 4)
             
         }
-        .foregroundColor(Color.text)
-        .padding()
-        .background(
-            Color.primary_1
-        )
-        .cornerRadius(8)
+        .padding(.vertical, 12)
+        .padding(.leading, 12)
+        .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.primary_1, lineWidth: 1))
         .padding(.horizontal)
         .fullScreenCover(isPresented: $shouldShowEditForm) {
             AddVaccinationFormView(vaccination: self.vaccination)
