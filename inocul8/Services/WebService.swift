@@ -31,5 +31,29 @@ class WebService {
             }
         }.resume()
     }
+
+    
+    func getCountry(ctry: String, completion: @escaping ([Country]?) -> Void) {
+        let urlString = "http://127.0.0.1:5000/search?ctry=\(ctry)"
+
+        guard let url = URL(string: urlString) else {
+            return
+        }
+
+        URLSession.shared.dataTask(with: url) { (data, resp, err) in
+            guard let data = data else { return }
+
+            DispatchQueue.main.async {
+                do {
+                    let country = try JSONDecoder().decode([Country].self, from: data)
+                    completion(country)
+                } catch {
+                    print("Failed to decode JSON:", error)
+                    completion(nil)
+                }
+            }
+        }.resume()
+    }
+    
     
 }

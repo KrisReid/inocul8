@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct TravelsView: View {
     
     @ObservedObject private var travelsVM = TravelsViewModel()
@@ -15,8 +16,9 @@ struct TravelsView: View {
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Travel.timestamp, ascending: false)],
         animation: .default)
-    private var travels: FetchedResults<Travel>    
-    
+    private var travels: FetchedResults<Travel>
+//    var travels: FetchedResults<Travel>
+
     
     var body: some View {
         
@@ -27,7 +29,6 @@ struct TravelsView: View {
                         TravelView(travel: travel)
                     }
                     .padding(.vertical, 10)
-                    
                 } else {
                     EmptyView(type: "travels")
                 }

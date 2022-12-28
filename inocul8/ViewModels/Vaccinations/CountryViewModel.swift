@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CountryViewModel {
+struct CountryViewModel: Identifiable {
     
     let country: Country
     
