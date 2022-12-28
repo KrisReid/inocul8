@@ -11,28 +11,83 @@ import SwiftUI
 struct TravelView: View {
     
     @ObservedObject private var travelVM = TravelViewModel()
+    
+    @State var shouldShowActionSheet = false
+    @State var shouldShowEditForm = false
+    
     let travel: Travel
     
     var body: some View {
-        
-        VStack {
-            Text("------")
-            Text(travel.destination ?? "Gah")
-            Text(String(travel.return_month))
-            Text(String(travel.return_year))
             
+        VStack (alignment: .leading) {
             ForEach(travelVM.countries) { countries in
-                Text(countries.name)
-                Text(countries.advised)
-                Text(countries.id)
+                
+                
+                HStack {
+                    Text(countries.name)
+                        .font(.system(size: 26, weight: .semibold))
+                    Spacer()
+                    Button {
+                        shouldShowActionSheet.toggle()
+                    } label: {
+                        Image(systemName: "ellipsis")
+                            .font(.system(size: 20, weight: .bold))
+                            .padding()
+                    }
+                    .actionSheet(isPresented: $shouldShowActionSheet) {
+                        .init(title: Text(self.travel.destination ?? ""), buttons: [
+                            .default(Text("Edit"), action: {shouldShowEditForm.toggle()}),
+                            .destructive(Text("Delete Vaccination"), action: handleDelete),
+                            .cancel()
+                        ])
+                    }
+   
+                }
+                .padding(.leading)
+                
+                Text(String("\(travel.return_month)-\(travel.return_year)"))
+                    .font(.system(size: 18, weight: .semibold))
+                    .padding(.leading)
+                
+                BreakdownView(items: countries.advised, category: "Advised")
+                BreakdownView(items: countries.consideration, category: "Considerations")
+                BreakdownView(items: countries.selectivelyAdvised, category: "Selectively Advised")
+                
+                Text(countries.yellowFeverInformation)
+                    .padding(.horizontal)
+                    .padding(.top, 10)
             }
-            
         }
+        .font(.system(size: 14, weight: .light))
+        .foregroundColor(Color.primary_1)
+        .padding(.vertical)
+        .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.primary_1, lineWidth: 1))
+        .padding(.horizontal)
         .onAppear(perform: {
-//            Figure out a way of passing a Sting of comma seperated names here
-            travelVM.fetchCountries(names: travel.destination ?? "")
+//            Figure out a way of passing a String of comma seperated names here
+            travelVM.fetchCountries(names: travel.destination ?? "United Kingdom")
         })
+        .fullScreenCover(isPresented: $shouldShowEditForm) {
+            AddTravelFormView(travel: self.travel)
+        }
+        
+        
+
     }
+    
+    func handleDelete() {
+        let viewContext = PersistenceController.shared.container.viewContext
+        viewContext.delete(travel)
+        do {
+            try viewContext.save()
+        } catch {
+            print(error)
+        }
+    }
+    
+                              
+                              
+                              
 }
 
 

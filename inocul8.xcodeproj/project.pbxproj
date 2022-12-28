@@ -22,6 +22,7 @@
 		023AAED6293F27B500C04F97 /* AddTravelFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023AAED5293F27B500C04F97 /* AddTravelFormViewModel.swift */; };
 		027330FF295C5559004F4F24 /* TravelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027330FE295C5559004F4F24 /* TravelViewModel.swift */; };
 		02733101295C6822004F4F24 /* BreakdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02733100295C6822004F4F24 /* BreakdownView.swift */; };
+		02733103295C911F004F4F24 /* AddVaccinationFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02733102295C911F004F4F24 /* AddVaccinationFormViewModel.swift */; };
 		02820F4829185DEF00782B89 /* inocul8App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02820F4729185DEF00782B89 /* inocul8App.swift */; };
 		02820F4A29185DEF00782B89 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02820F4929185DEF00782B89 /* Persistence.swift */; };
 		02820F4D29185DEF00782B89 /* inocul8.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 02820F4B29185DEF00782B89 /* inocul8.xcdatamodeld */; };
@@ -51,6 +52,7 @@
 		027330FD295C4E15004F4F24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		027330FE295C5559004F4F24 /* TravelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelViewModel.swift; sourceTree = "<group>"; };
 		02733100295C6822004F4F24 /* BreakdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakdownView.swift; sourceTree = "<group>"; };
+		02733102295C911F004F4F24 /* AddVaccinationFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVaccinationFormViewModel.swift; sourceTree = "<group>"; };
 		02820F4429185DEF00782B89 /* inocul8.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = inocul8.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02820F4729185DEF00782B89 /* inocul8App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inocul8App.swift; sourceTree = "<group>"; };
 		02820F4929185DEF00782B89 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			children = (
 				023AAEB9293B88A800C04F97 /* CountryViewModel.swift */,
 				023AAEC7293F1FBC00C04F97 /* VaccinationsViewModel.swift */,
+				02733102295C911F004F4F24 /* AddVaccinationFormViewModel.swift */,
 			);
 			path = Vaccinations;
 			sourceTree = "<group>";
@@ -170,7 +173,6 @@
 		02820F4629185DEF00782B89 /* inocul8 */ = {
 			isa = PBXGroup;
 			children = (
-				027330FD295C4E15004F4F24 /* Info.plist */,
 				023AAEB6293B87BB00C04F97 /* ViewModels */,
 				023AAEB3293B864B00C04F97 /* Models */,
 				023AAEB0293B860600C04F97 /* Services */,
@@ -181,6 +183,7 @@
 				02820F5029185DF000782B89 /* Assets.xcassets */,
 				02820F5229185DF100782B89 /* inocul8.entitlements */,
 				02820F4B29185DEF00782B89 /* inocul8.xcdatamodeld */,
+				027330FD295C4E15004F4F24 /* Info.plist */,
 				02820F5329185DF100782B89 /* Preview Content */,
 			);
 			path = inocul8;
@@ -288,6 +291,7 @@
 				027330FF295C5559004F4F24 /* TravelViewModel.swift in Sources */,
 				02820F60291E563900782B89 /* AddVaccinationFormView.swift in Sources */,
 				023AAEBC293E895B00C04F97 /* ViewRouter.swift in Sources */,
+				02733103295C911F004F4F24 /* AddVaccinationFormViewModel.swift in Sources */,
 				023AAED4293F25F300C04F97 /* AddTravelFormView.swift in Sources */,
 				02820F5E291E45FE00782B89 /* Extensions.swift in Sources */,
 				02820F62291E770300782B89 /* VaccinationView.swift in Sources */,

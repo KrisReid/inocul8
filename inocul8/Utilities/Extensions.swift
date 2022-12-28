@@ -46,3 +46,15 @@ struct RoundedCorner: Shape {
 }
 
 
+extension String {
+    func stringToArray () -> [String] {
+        var finalList: [String] = []
+        let stringMinusFullStop = self.dropLast()
+        let list = stringMinusFullStop.split(separator: ";")
+        
+        for a in list {
+            finalList.append(a.trimmingCharacters(in: .whitespaces))
+        }
+        return finalList
+    }
+}
