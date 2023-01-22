@@ -31,32 +31,10 @@ class WebService {
             }
         }.resume()
     }
-
-    
-    func getCountry(ctry: String, completion: @escaping ([Country]?) -> Void) {
-        let urlString = "http://127.0.0.1:5000/search?ctry=\(ctry)"
-
-        guard let url = URL(string: urlString) else {
-            return
-        }
-
-        URLSession.shared.dataTask(with: url) { (data, resp, err) in
-            guard let data = data else { return }
-
-            DispatchQueue.main.async {
-                do {
-                    let country = try JSONDecoder().decode([Country].self, from: data)
-                    completion(country)
-                } catch {
-                    print("Failed to decode JSON:", error)
-                    completion(nil)
-                }
-            }
-        }.resume()
-    }
     
     
-    func getVaccineValidation(country: String, date: String, vaccinations: String, completion: @escaping (TravelCountry?) -> Void) {
+    
+    func getVaccineValidation(country: String, date: String, vaccinations: String, completion: @escaping ([Destination]?) -> Void) {
         let urlString = "http://127.0.0.1:5000/validate?country=\(country)&travel_date=\(date)&vaccinations=\(vaccinations)"
 
         guard let url = URL(string: urlString) else {
@@ -65,12 +43,10 @@ class WebService {
 
         URLSession.shared.dataTask(with: url) { (data, resp, err) in
             guard let data = data else { return }
-            
-            print(data)
 
             DispatchQueue.main.async {
                 do {
-                    let country = try JSONDecoder().decode(TravelCountry.self, from: data)
+                    let country = try JSONDecoder().decode([Destination].self, from: data)
                     completion(country)
                 } catch {
                     print("Failed to decode JSON:", error)
