@@ -45,11 +45,10 @@ struct TravelView: View {
    
                 }
                 .padding(.leading)
-                
-                Text(String("\(travel.return_month)-\(travel.return_year)"))
+
+                Text(String("\(String(format: "%02d", travel.return_month))-\(travel.return_year)"))
                     .font(.system(size: 18, weight: .semibold))
                     .padding(.leading)
-                
                 
                 
 //                BreakdownView(items: countries.advised, category: "Advised")
@@ -57,7 +56,8 @@ struct TravelView: View {
 //                BreakdownView(items: countries.selectivelyAdvised, category: "Selectively Advised")
 //
 
-                Text(destination.yellowFeverInformation)                    .padding(.horizontal)
+                Text(destination.yellowFeverInformation)
+                    .padding(.horizontal)
                     .padding(.top, 10)
             }
         }
@@ -67,14 +67,11 @@ struct TravelView: View {
         .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.primary_1, lineWidth: 1))
         .padding(.horizontal)
         .onAppear(perform: {
-            travelVM.fetchDestination(country: travel.destination ?? "", date: "\(travel.return_year)-02", vaccinations: "Hepatitis%20A:2022-07,Tetanus:2026-09,Hepatitis%20B:2021-07")
+            travelVM.fetchDestination(country: travel.destination ?? "", date: "\(travel.return_year)-\(String(format: "%02d", travel.return_month))", vaccinations: "Hepatitis%20A:2022-07,Tetanus:2026-09,Hepatitis%20B:2021-07")
         })
         .fullScreenCover(isPresented: $shouldShowEditForm) {
             AddTravelFormView(travel: self.travel)
         }
-        
-        
-
     }
     
     func handleDelete() {

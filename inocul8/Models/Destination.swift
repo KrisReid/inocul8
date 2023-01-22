@@ -17,4 +17,3 @@ struct Destination: Decodable {
     let yellow_fever_information: String
     let general_information: String
 }
-

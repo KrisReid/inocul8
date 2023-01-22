@@ -44,7 +44,7 @@ struct AddTravelFormView: View {
                     .pickerStyle(.menu)
                     Picker("Returning Month", selection: $return_month) {
                         ForEach(1..<13, id: \.self) { num in
-                            Text(String(num)).tag(String(num))
+                            Text(String(format: "%02d", num)).tag(String(num))
                         }
                     }
                     Picker("Returning Year", selection: $return_year) {

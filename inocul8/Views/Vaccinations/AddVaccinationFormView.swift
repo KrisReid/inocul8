@@ -83,7 +83,7 @@ struct AddVaccinationFormView: View {
                     TextField("Location Recieved", text: $dose_one_location)
                     Picker("Recieved Month", selection: $dose_one_recieved_month) {
                         ForEach(1..<13, id: \.self) { num in
-                            Text(String(num)).tag(String(num))
+                            Text(String(format: "%02d", num)).tag(String(num))
                         }
                     }
                     Picker("Recieved Year", selection: $dose_one_recieved_year) {
@@ -93,7 +93,7 @@ struct AddVaccinationFormView: View {
                     }
                     Picker("Expired Month", selection: $dose_one_expires_month) {
                         ForEach(1..<13, id: \.self) { num in
-                            Text(String(num)).tag(String(num))
+                            Text(String(format: "%02d", num)).tag(String(num))
                         }
                     }
                     Picker("Expired Year", selection: $dose_one_expires_year) {
@@ -114,7 +114,7 @@ struct AddVaccinationFormView: View {
                         TextField("Location Recieved", text: $dose_two_location)
                         Picker("Recieved Month", selection: $dose_two_recieved_month) {
                             ForEach(1..<13, id: \.self) { num in
-                                Text(String(num)).tag(String(num))
+                                Text(String(format: "%02d", num)).tag(String(num))
                             }
                         }
                         Picker("Recieved Year", selection: $dose_two_recieved_year) {
@@ -124,7 +124,7 @@ struct AddVaccinationFormView: View {
                         }
                         Picker("Expired Month", selection: $dose_two_expires_month) {
                             ForEach(1..<13, id: \.self) { num in
-                                Text(String(num)).tag(String(num))
+                                Text(String(format: "%02d", num)).tag(String(num))
                             }
                         }
                         Picker("Expired Year", selection: $dose_two_expires_year) {
@@ -149,7 +149,7 @@ struct AddVaccinationFormView: View {
                         TextField("Location Recieved", text: $dose_three_location)
                         Picker("Recieved Month", selection: $dose_three_recieved_month) {
                             ForEach(1..<13, id: \.self) { num in
-                                Text(String(num)).tag(String(num))
+                                Text(String(format: "%02d", num)).tag(String(num))
                             }
                         }
                         Picker("Recieved Year", selection: $dose_three_recieved_year) {
@@ -159,7 +159,7 @@ struct AddVaccinationFormView: View {
                         }
                         Picker("Expired Month", selection: $dose_three_expires_month) {
                             ForEach(1..<13, id: \.self) { num in
-                                Text(String(num)).tag(String(num))
+                                Text(String(format: "%02d", num)).tag(String(num))
                             }
                         }
                         Picker("Expired Year", selection: $dose_three_expires_year) {

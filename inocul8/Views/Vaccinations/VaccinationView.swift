@@ -43,14 +43,16 @@ struct VaccinationView: View {
             HStack {
                 Spacer()
                 VStack {
-                    VaccinationDetailView(manufacturer: vaccination.dose_one_manufacturer ?? "N/A", location: vaccination.dose_one_location ?? "N/A", administeredMonth: String(vaccination.dose_one_recieved_month), administeredYear: String(vaccination.dose_one_recieved_year), expiresMonth: String(vaccination.dose_one_expires_month), expiresYear: String(vaccination.dose_one_expires_year), dosageNumber: "1")
+//                    Text(String(format: "%02d", num)).tag(String(num))
+                    
+                    VaccinationDetailView(manufacturer: vaccination.dose_one_manufacturer ?? "N/A", location: vaccination.dose_one_location ?? "N/A", administeredMonth: String(format: "%02d",vaccination.dose_one_recieved_month), administeredYear: String(vaccination.dose_one_recieved_year), expiresMonth: String(format: "%02d",vaccination.dose_one_expires_month), expiresYear: String(vaccination.dose_one_expires_year), dosageNumber: "1")
                     
                     if vaccination.dose_two_expires_year != 9999 {
-                        VaccinationDetailView(manufacturer: vaccination.dose_two_manufacturer ?? "N/A", location: vaccination.dose_two_location ?? "N/A", administeredMonth: String(vaccination.dose_two_recieved_month), administeredYear: String(vaccination.dose_two_recieved_year), expiresMonth: String(vaccination.dose_two_expires_month), expiresYear: String(vaccination.dose_two_expires_year), dosageNumber: "2")
+                        VaccinationDetailView(manufacturer: vaccination.dose_two_manufacturer ?? "N/A", location: vaccination.dose_two_location ?? "N/A", administeredMonth: String(format: "%02d", vaccination.dose_two_recieved_month), administeredYear: String(vaccination.dose_two_recieved_year), expiresMonth: String(format: "%02d",vaccination.dose_two_expires_month), expiresYear: String(vaccination.dose_two_expires_year), dosageNumber: "2")
                     }
                     
                     if vaccination.dose_three_expires_year != 9999 {
-                        VaccinationDetailView(manufacturer: vaccination.dose_three_manufacturer ?? "N/A", location: vaccination.dose_three_location ?? "N/A", administeredMonth: String(vaccination.dose_three_recieved_month), administeredYear: String(vaccination.dose_three_recieved_year), expiresMonth: String(vaccination.dose_three_expires_month), expiresYear: String(vaccination.dose_three_expires_year), dosageNumber: "2")
+                        VaccinationDetailView(manufacturer: vaccination.dose_three_manufacturer ?? "N/A", location: vaccination.dose_three_location ?? "N/A", administeredMonth: String(format: "%02d",vaccination.dose_three_recieved_month), administeredYear: String(vaccination.dose_three_recieved_year), expiresMonth: String(format: "%02d", vaccination.dose_three_expires_month), expiresYear: String(vaccination.dose_three_expires_year), dosageNumber: "2")
                     }
                 }
                 .padding(.bottom, 4)
