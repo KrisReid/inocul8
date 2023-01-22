@@ -48,7 +48,6 @@ struct BreakdownView: View {
                     .padding(.vertical, 1)
                     .frame(alignment: .leading)
                 }
-                
             }
             .padding()
             .overlay(RoundedRectangle(cornerRadius: 3).stroke(Color.primary_1, lineWidth: 1))
@@ -60,9 +59,7 @@ struct BreakdownView: View {
 
 struct BreakdownView_Previews: PreviewProvider {
     static var previews: some View {
-        let viewContext = PersistenceController.shared.container.viewContext
-        ContentView(viewRouter: ViewRouter())
-            .environment(\.managedObjectContext, viewContext)
-//        BreakdownView(items: Dictionary<"", Any>, category: "Advised")
+        let sampleDict = ["Hepatitus A": "valid", "Hepatitus B": "invalid", "Polio": "valid"]
+        BreakdownView(items: sampleDict, category: "Advised")
     }
 }
