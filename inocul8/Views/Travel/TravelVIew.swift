@@ -14,8 +14,10 @@ struct TravelView: View {
     
     @State var shouldShowActionSheet = false
     @State var shouldShowEditForm = false
-    
+
     let travel: Travel
+    let vaccinations: FetchedResults<Vaccination>
+    
     
     var body: some View {
             

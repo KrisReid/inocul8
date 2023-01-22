@@ -21,3 +21,6 @@ struct CountryViewModel: Identifiable {
     var generalInformation: String { return self.country.general_information }
     
 }
+
+
+

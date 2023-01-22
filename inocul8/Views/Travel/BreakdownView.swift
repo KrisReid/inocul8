@@ -10,13 +10,18 @@ import SwiftUI
 struct BreakdownView: View {
     
     let items: String
-//    let width: CGFloat
     let category: String
+    
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Vaccination.timestamp, ascending: false)],
+        animation: .default)
+    var vaccinations: FetchedResults<Vaccination>
     
     var body: some View {
         
         let list = items.stringToArray()
-        
+                
         HStack {
             Text("✅")
                 .padding(.horizontal, 40)
@@ -30,28 +35,27 @@ struct BreakdownView: View {
                     .textCase(.uppercase)
                 
                 ForEach(list, id: \.self) { item in
-                    HStack {
-                        Text(item)
-                        Spacer()
-                        Text("✅")
+                    ForEach(vaccinations) { vaccine in
+                        HStack {
+                            Text(item)
+                            Spacer()
+                            if(item == vaccine.name ?? "" || item == "none") {
+                                Text("✅")
+                            } else {
+                                Text("⚠️")
+                            }
+                            
+                        }
+                        .padding(.vertical, 1)
+                        .frame(alignment: .leading)
                     }
-                    .padding(.vertical, 1)
-                    .frame(alignment: .leading)
+                    
                 }
+                
             }
             .padding()
             .overlay(RoundedRectangle(cornerRadius: 3).stroke(Color.primary_1, lineWidth: 1))
-//            .background(
-//                Color.primary_1
-//            )
-//            .cornerRadius(8, corners: [.topLeft, .bottomLeft])
         }
-
-
-        
-
-
-
 
     }
     

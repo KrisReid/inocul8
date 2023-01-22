@@ -20,14 +20,10 @@ struct AddTravelFormView: View {
         self.travel = travel
         self.didAddTravel = didAddTravel
         
-//        addTravelFormVM.load()
-        
         _destination = State(initialValue: self.travel?.destination ?? "")
         _return_month = State(initialValue: Int(self.travel?.return_month ?? Int16(addTravelFormVM.currentMonth)))
         _return_year = State(initialValue: Int(self.travel?.return_year ?? Int16(addTravelFormVM.currentYear)))
         
-//        _return_month = State(initialValue: Int(return_month ?? Int16(addTravelFormVM.currentMonth)))
-//        _return_year = State(initialValue: Int($addTravelFormVM.return_year ?? Int16(addTravelFormVM.currentYear)))
     }
     
     @Environment(\.presentationMode) var presentationMode
@@ -40,24 +36,17 @@ struct AddTravelFormView: View {
         NavigationView {
             Form {
                 Section {
-//                    Picker("Destination", selection: $addTravelFormVM.destination) {
                     Picker("Destination", selection: $destination) {
                         ForEach(self.addTravelFormVM.countryList, id: \.self) { country in
                             Text(country)
                         }
-//                        ForEach(self.addTravelFormVM.countries, id:\.name) { country in
-//                            Text(country.name)
-//                        }
                     }
                     .pickerStyle(.menu)
-//                    Picker("Returning Month", selection: $addTravelFormVM.return_month) {
-                        Picker("Returning Month", selection: $return_month) {
-
+                    Picker("Returning Month", selection: $return_month) {
                         ForEach(1..<13, id: \.self) { num in
                             Text(String(num)).tag(String(num))
                         }
                     }
-//                    Picker("Returning Year", selection: $addTravelFormVM.return_year) {
                     Picker("Returning Year", selection: $return_year) {
                         ForEach(addTravelFormVM.currentYear ... addTravelFormVM.currentYear + 11, id: \.self) { num in
                             Text(String(num)).tag(String(num))
@@ -92,11 +81,6 @@ struct AddTravelFormView: View {
             travel.return_month = Int16(self.return_month)
             travel.return_year = Int16(self.return_year)
             travel.timestamp = Date()
-            
-//            travel.destination = addTravelFormVM.destination
-//            travel.return_month = Int16(addTravelFormVM.return_month)
-//            travel.return_year = Int16(addTravelFormVM.return_year)
-//            travel.timestamp = Date()
             
             do {
                 try viewContext.save()

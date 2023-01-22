@@ -11,13 +11,13 @@ import SwiftUI
 struct TravelsView: View {
     
     @ObservedObject private var travelsVM = TravelsViewModel()
-    
     @Environment(\.managedObjectContext) private var viewContext
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Travel.timestamp, ascending: false)],
-        animation: .default)
+    
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Travel.timestamp, ascending: false)],animation: .default)
     private var travels: FetchedResults<Travel>
-//    var travels: FetchedResults<Travel>
+    
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Vaccination.timestamp, ascending: false)], animation: .default)
+    var vaccinations: FetchedResults<Vaccination>
 
     
     var body: some View {
@@ -26,7 +26,7 @@ struct TravelsView: View {
             ScrollView {
                 if !travels.isEmpty {
                     ForEach(travels) { travel in
-                        TravelView(travel: travel)
+                        TravelView(travel: travel, vaccinations: vaccinations)
                     }
                     .padding(.vertical, 10)
                 } else {
@@ -57,6 +57,8 @@ struct TravelsView: View {
 
 struct TravelsView_Previews: PreviewProvider {
     static var previews: some View {
+        let viewContext = PersistenceController.shared.container.viewContext
         TravelsView()
+            .environment(\.managedObjectContext, viewContext)
     }
 }

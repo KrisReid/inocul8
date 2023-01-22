@@ -10,6 +10,7 @@ import Foundation
 class TravelViewModel: ObservableObject {
     @Published var shouldPresentAddTravelForm = false
     @Published var countries: [CountryViewModel] = [CountryViewModel]()
+    @Published var destinations: [DesitnationViewModel] = [DesitnationViewModel]()
 
     func fetchCountries(names: String) {
         WebService().getCountry(ctry: names) { countries in
@@ -18,5 +19,14 @@ class TravelViewModel: ObservableObject {
             }
         }
     }
+    
+    func fetchDestination(country: String, date: String, vaccinations: String) {
+        WebService().getVaccineValidation(country: country, date: date, vaccinations: vaccinations, completion: { destinations in
+            if let destinations = destinations {
+                self.destinations = destinations.map(DesitnationViewModel.init)
+            }
+        })
+    }
+    
     
 }
