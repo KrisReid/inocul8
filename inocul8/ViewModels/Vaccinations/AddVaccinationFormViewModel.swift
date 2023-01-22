@@ -10,6 +10,7 @@ import Foundation
 class AddVaccinationFormViewModel: ObservableObject {
     
     @Published var vaccinationsList: [String] = [
+        "--------",
         "Diphtheria",
         "Hepatitis B",
         "Meningococcal Meningitis",

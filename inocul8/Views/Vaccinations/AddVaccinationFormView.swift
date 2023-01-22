@@ -9,6 +9,8 @@ import SwiftUI
 
 struct AddVaccinationFormView: View {
     
+    @ObservedObject private var addVaccinationFormVM = AddVaccinationFormViewModel()
+    
     //Code to optionally pass in data to this view
     let vaccination: Vaccination?
     
@@ -73,7 +75,11 @@ struct AddVaccinationFormView: View {
         NavigationView {
             Form {
                 Section {
-                    TextField("Name", text: $name)
+                    Picker("Name", selection: $name) {
+                        ForEach(self.addVaccinationFormVM.vaccinationsList, id: \.self) { vaccine in
+                            Text(vaccine)
+                        }
+                    }
                 } header: {
                     Text("Vaccination Info")
                         .font(.system(size: 14))
