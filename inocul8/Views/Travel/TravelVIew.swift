@@ -51,9 +51,9 @@ struct TravelView: View {
                     .padding(.leading)
                 
                 
-//                BreakdownView(items: countries.advised, category: "Advised")
-//                BreakdownView(items: countries.consideration, category: "Considerations")
-//                BreakdownView(items: countries.selectivelyAdvised, category: "Selectively Advised")
+                BreakdownView(items: destination.advised, category: "Advised")
+                BreakdownView(items: destination.consideration, category: "Considerations")
+                BreakdownView(items: destination.selectivelyAdvised, category: "Selectively Advised")
 //
 
                 Text(destination.yellowFeverInformation)

@@ -9,21 +9,15 @@ import SwiftUI
 
 struct BreakdownView: View {
     
-    let items: String
+    let items: Dictionary<String, String>
     let category: String
     
-    @Environment(\.managedObjectContext) private var viewContext
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Vaccination.timestamp, ascending: false)],
-        animation: .default)
-    var vaccinations: FetchedResults<Vaccination>
+    @State var valid = true
     
     var body: some View {
-        
-        let list = items.stringToArray()
                 
         HStack {
-            Text("✅")
+            Text(valid ? "✅" : "⚠️")
                 .padding(.horizontal, 40)
                 .font(.system(size: 30))
             VStack (alignment: .leading) {
@@ -34,22 +28,25 @@ struct BreakdownView: View {
                     .foregroundColor(.black)
                     .textCase(.uppercase)
                 
-                ForEach(list, id: \.self) { item in
-                    ForEach(vaccinations) { vaccine in
-                        HStack {
-                            Text(item)
-                            Spacer()
-                            if(item == vaccine.name ?? "" || item == "none") {
+                ForEach(items.keys.sorted(), id: \.self) { key in
+                    HStack {
+                        Text(key)
+                        Spacer()
+                        if(key == "none") {
+                            Text("✅")
+                        } else {
+                            if (items[key]! == "valid") {
                                 Text("✅")
                             } else {
                                 Text("⚠️")
+                                    .onAppear(perform: {
+                                        valid = false
+                                    })
                             }
-                            
                         }
-                        .padding(.vertical, 1)
-                        .frame(alignment: .leading)
                     }
-                    
+                    .padding(.vertical, 1)
+                    .frame(alignment: .leading)
                 }
                 
             }
@@ -63,6 +60,9 @@ struct BreakdownView: View {
 
 struct BreakdownView_Previews: PreviewProvider {
     static var previews: some View {
-        BreakdownView(items: "Hep A; Hep B; Polio.", category: "Advised")
+        let viewContext = PersistenceController.shared.container.viewContext
+        ContentView(viewRouter: ViewRouter())
+            .environment(\.managedObjectContext, viewContext)
+//        BreakdownView(items: Dictionary<"", Any>, category: "Advised")
     }
 }
