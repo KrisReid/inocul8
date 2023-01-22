@@ -25,6 +25,7 @@
 		02733103295C911F004F4F24 /* AddVaccinationFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02733102295C911F004F4F24 /* AddVaccinationFormViewModel.swift */; };
 		027331052964C2A5004F4F24 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027331042964C2A5004F4F24 /* Destination.swift */; };
 		027331072970B33B004F4F24 /* DestinationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027331062970B33B004F4F24 /* DestinationViewModel.swift */; };
+		02733108297DEC7C004F4F24 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 027330FD295C4E15004F4F24 /* Info.plist */; };
 		02820F4829185DEF00782B89 /* inocul8App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02820F4729185DEF00782B89 /* inocul8App.swift */; };
 		02820F4A29185DEF00782B89 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02820F4929185DEF00782B89 /* Persistence.swift */; };
 		02820F4D29185DEF00782B89 /* inocul8.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 02820F4B29185DEF00782B89 /* inocul8.xcdatamodeld */; };
@@ -281,6 +282,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02733108297DEC7C004F4F24 /* Info.plist in Resources */,
 				02820F5529185DF100782B89 /* Preview Assets.xcassets in Resources */,
 				02820F5129185DF000782B89 /* Assets.xcassets in Resources */,
 			);
