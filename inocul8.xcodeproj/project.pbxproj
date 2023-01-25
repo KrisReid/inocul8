@@ -56,7 +56,6 @@
 		02733102295C911F004F4F24 /* AddVaccinationFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVaccinationFormViewModel.swift; sourceTree = "<group>"; };
 		027331042964C2A5004F4F24 /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
 		027331062970B33B004F4F24 /* DestinationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationViewModel.swift; sourceTree = "<group>"; };
-		0273310F2981EA12004F4F24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		02820F4429185DEF00782B89 /* inocul8.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = inocul8.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02820F4729185DEF00782B89 /* inocul8App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inocul8App.swift; sourceTree = "<group>"; };
 		02820F4929185DEF00782B89 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -179,7 +178,6 @@
 		02820F4629185DEF00782B89 /* inocul8 */ = {
 			isa = PBXGroup;
 			children = (
-				0273310F2981EA12004F4F24 /* Info.plist */,
 				023AAEB6293B87BB00C04F97 /* ViewModels */,
 				023AAEB3293B864B00C04F97 /* Models */,
 				023AAEB0293B860600C04F97 /* Services */,
@@ -376,8 +374,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = inocul8/Info.plist;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = NO;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -432,8 +430,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = inocul8/Info.plist;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = NO;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -457,7 +455,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = inocul8/Info.plist;
+				INFOPLIST_FILE = "";
 				INFOPLIST_KEY_CFBundleDisplayName = inocul8;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -502,7 +500,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = inocul8/Info.plist;
+				INFOPLIST_FILE = "";
 				INFOPLIST_KEY_CFBundleDisplayName = inocul8;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
