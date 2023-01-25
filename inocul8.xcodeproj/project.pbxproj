@@ -51,7 +51,6 @@
 		023AAED1293F243B00C04F97 /* TravelsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelsViewModel.swift; sourceTree = "<group>"; };
 		023AAED3293F25F300C04F97 /* AddTravelFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTravelFormView.swift; sourceTree = "<group>"; };
 		023AAED5293F27B500C04F97 /* AddTravelFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTravelFormViewModel.swift; sourceTree = "<group>"; };
-		027330FD295C4E15004F4F24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		027330FE295C5559004F4F24 /* TravelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelViewModel.swift; sourceTree = "<group>"; };
 		02733100295C6822004F4F24 /* BreakdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakdownView.swift; sourceTree = "<group>"; };
 		02733102295C911F004F4F24 /* AddVaccinationFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVaccinationFormViewModel.swift; sourceTree = "<group>"; };
@@ -189,7 +188,6 @@
 				02820F5029185DF000782B89 /* Assets.xcassets */,
 				02820F5229185DF100782B89 /* inocul8.entitlements */,
 				02820F4B29185DEF00782B89 /* inocul8.xcdatamodeld */,
-				027330FD295C4E15004F4F24 /* Info.plist */,
 				02820F5329185DF100782B89 /* Preview Content */,
 			);
 			path = inocul8;
@@ -376,7 +374,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = /Users/krisreid/Documents/Coding/SwiftUI/inocul8/inocul8;
+				INFOPLIST_FILE = "";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -430,7 +428,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = /Users/krisreid/Documents/Coding/SwiftUI/inocul8/inocul8;
+				INFOPLIST_FILE = "";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -453,7 +451,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = inocul8/Info.plist;
+				INFOPLIST_FILE = "";
 				INFOPLIST_KEY_CFBundleDisplayName = inocul8;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -498,7 +496,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = inocul8/Info.plist;
+				INFOPLIST_FILE = "";
 				INFOPLIST_KEY_CFBundleDisplayName = inocul8;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
