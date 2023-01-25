@@ -25,7 +25,6 @@
 		02733103295C911F004F4F24 /* AddVaccinationFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02733102295C911F004F4F24 /* AddVaccinationFormViewModel.swift */; };
 		027331052964C2A5004F4F24 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027331042964C2A5004F4F24 /* Destination.swift */; };
 		027331072970B33B004F4F24 /* DestinationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027331062970B33B004F4F24 /* DestinationViewModel.swift */; };
-		02733108297DEC7C004F4F24 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 027330FD295C4E15004F4F24 /* Info.plist */; };
 		02820F4829185DEF00782B89 /* inocul8App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02820F4729185DEF00782B89 /* inocul8App.swift */; };
 		02820F4A29185DEF00782B89 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02820F4929185DEF00782B89 /* Persistence.swift */; };
 		02820F4D29185DEF00782B89 /* inocul8.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 02820F4B29185DEF00782B89 /* inocul8.xcdatamodeld */; };
@@ -252,7 +251,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1410;
-				LastUpgradeCheck = 1410;
+				LastUpgradeCheck = 1420;
 				TargetAttributes = {
 					02820F4329185DEF00782B89 = {
 						CreatedOnToolsVersion = 14.1;
@@ -282,7 +281,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02733108297DEC7C004F4F24 /* Info.plist in Resources */,
 				02820F5529185DF100782B89 /* Preview Assets.xcassets in Resources */,
 				02820F5129185DF000782B89 /* Assets.xcassets in Resources */,
 			);
@@ -360,6 +358,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -418,6 +417,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -442,8 +442,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = inocul8/inocul8.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"inocul8/Preview Content\"";
 				DEVELOPMENT_TEAM = S9H4B38ZQN;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -485,8 +487,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = inocul8/inocul8.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"inocul8/Preview Content\"";
 				DEVELOPMENT_TEAM = S9H4B38ZQN;
 				ENABLE_HARDENED_RUNTIME = YES;
